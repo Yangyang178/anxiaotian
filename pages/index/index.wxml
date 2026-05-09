@@ -1,0 +1,126 @@
+<navigation-bar title="食安查" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-content">
+    <view class="header-section">
+      <view class="header-brand">
+        <view class="brand-mark"></view>
+        <view class="brand-text">
+          <text class="brand-name">食安查</text>
+          <text class="brand-slogan">看懂配料表再下单</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="search-section">
+      <view class="search-bar">
+        <view class="search-icon-wrap">
+          <view class="search-icon-circle"></view>
+          <view class="search-icon-handle"></view>
+        </view>
+        <input
+          class="search-input"
+          placeholder='搜添加剂名称或编号，如"山梨酸钾""E202"'
+          placeholder-class="search-placeholder"
+          value="{{keyword}}"
+          bindinput="onSearchInput"
+          confirm-type="search"
+        />
+        <view class="search-clear" wx:if="{{keyword}}" bindtap="onClearSearch">
+          <view class="clear-icon"></view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{isSearching}}" class="search-results">
+      <view class="result-header">
+        <text class="result-count">找到 {{searchResults.length}} 个结果</text>
+      </view>
+      <view
+        wx:for="{{searchResults}}"
+        wx:key="id"
+        class="additive-item safety-{{item.safetyClass}}"
+        data-id="{{item.id}}"
+        bindtap="onTapAdditive"
+      >
+        <view class="item-left">
+          <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+          <view class="item-info">
+            <text class="item-name">{{item.name}}</text>
+            <text class="item-code">{{item.code}}</text>
+          </view>
+        </view>
+        <view class="item-right">
+          <text class="item-category">{{item.category}}</text>
+          <text class="item-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+        </view>
+      </view>
+      <view wx:if="{{searchResults.length === 0}}" class="empty-result">
+        <text class="empty-text">未找到相关添加剂</text>
+      </view>
+    </view>
+
+    <view wx:if="{{!isSearching}}">
+      <view class="safety-overview">
+        <view class="overview-title">安全等级概览</view>
+        <view class="overview-cards">
+          <view class="overview-card card-safe" bindtap="onTapSafetyLevel" data-level="安全">
+            <text class="overview-count">{{safetyStats.safe}}</text>
+            <text class="overview-label">🟢 安全</text>
+          </view>
+          <view class="overview-card card-warning" bindtap="onTapSafetyLevel" data-level="争议">
+            <text class="overview-count">{{safetyStats.warning}}</text>
+            <text class="overview-label">🟡 争议</text>
+          </view>
+          <view class="overview-card card-danger" bindtap="onTapSafetyLevel" data-level="慎用">
+            <text class="overview-count">{{safetyStats.danger}}</text>
+            <text class="overview-label">🔴 慎用</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="category-section">
+        <view class="section-title">按功能分类</view>
+        <view class="category-grid">
+          <view
+            wx:for="{{categories}}"
+            wx:key="name"
+            class="category-item"
+            data-name="{{item.name}}"
+            bindtap="onTapCategory"
+          >
+            <view class="category-icon category-icon-{{index % 6}}">{{item.name[0]}}</view>
+            <text class="category-name">{{item.name}}</text>
+            <text class="category-count">{{item.count}}种</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="hot-section">
+        <view class="section-title">热门查询</view>
+        <view class="hot-list">
+          <view
+            wx:for="{{hotAdditives}}"
+            wx:key="id"
+            class="hot-item safety-{{item.safetyClass}}"
+            data-id="{{item.id}}"
+            bindtap="onTapAdditive"
+          >
+            <view class="hot-left">
+              <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+              <text class="hot-name">{{item.name}}</text>
+            </view>
+            <view class="hot-right">
+              <text class="hot-category">{{item.category}}</text>
+              <text class="hot-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="disclaimer">
+        <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<my-tab-bar current="{{0}}"></my-tab-bar>

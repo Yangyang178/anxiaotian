@@ -1,0 +1,156 @@
+.tab-bar {
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  background-color: #ffffff;
+  border-top: 1rpx solid #E8E8E8;
+  padding-bottom: env(safe-area-inset-bottom);
+  flex-shrink: 0;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rpx 0;
+}
+
+.tab-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-text {
+  font-size: 20rpx;
+  color: #999999;
+  line-height: 28rpx;
+}
+
+.tab-item.active .tab-text {
+  color: #52C41A;
+}
+
+.icon-home {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.icon-home-roof {
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-bottom: 14rpx solid #999999;
+}
+
+.tab-item.active .icon-home-roof {
+  border-bottom-color: #52C41A;
+}
+
+.icon-home-body {
+  width: 28rpx;
+  height: 16rpx;
+  background-color: #999999;
+  border-radius: 0 0 4rpx 4rpx;
+}
+
+.tab-item.active .icon-home-body {
+  background-color: #52C41A;
+}
+
+.icon-category {
+  width: 36rpx;
+  height: 36rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.icon-category-dot {
+  width: 14rpx;
+  height: 14rpx;
+  background-color: #999999;
+  border-radius: 4rpx;
+}
+
+.tab-item.active .icon-category-dot {
+  background-color: #52C41A;
+}
+
+.icon-scan {
+  width: 36rpx;
+  height: 36rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-scan-frame {
+  width: 36rpx;
+  height: 36rpx;
+  border: 4rpx solid #999999;
+  border-radius: 6rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tab-item.active .icon-scan-frame {
+  border-color: #52C41A;
+}
+
+.icon-scan-line {
+  width: 20rpx;
+  height: 4rpx;
+  background-color: #999999;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-item.active .icon-scan-line {
+  background-color: #52C41A;
+}
+
+.icon-mine {
+  width: 36rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-mine-head {
+  width: 14rpx;
+  height: 14rpx;
+  background-color: #999999;
+  border-radius: 50%;
+  margin-bottom: 4rpx;
+}
+
+.tab-item.active .icon-mine-head {
+  background-color: #52C41A;
+}
+
+.icon-mine-body {
+  width: 26rpx;
+  height: 12rpx;
+  background-color: #999999;
+  border-radius: 12rpx 12rpx 0 0;
+}
+
+.tab-item.active .icon-mine-body {
+  background-color: #52C41A;
+}

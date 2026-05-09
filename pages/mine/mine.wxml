@@ -1,0 +1,93 @@
+<navigation-bar title="我的" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-content">
+    <view class="profile-header">
+      <view class="profile-avatar">
+        <view class="avatar-inner"></view>
+      </view>
+      <view class="profile-info">
+        <text class="profile-title">食安查</text>
+        <text class="profile-subtitle">看懂配料表再下单</text>
+      </view>
+    </view>
+
+    <view class="stats-row">
+      <view class="stats-item">
+        <text class="stats-number">{{favoriteCount}}</text>
+        <text class="stats-label">收藏</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-number">{{historyCount}}</text>
+        <text class="stats-label">扫描</text>
+      </view>
+    </view>
+
+    <view class="tab-header">
+      <view class="tab-btn {{activeTab === 'favorites' ? 'tab-active' : ''}}" data-tab="favorites" bindtap="switchTab">
+        <text>我的收藏</text>
+      </view>
+      <view class="tab-btn {{activeTab === 'history' ? 'tab-active' : ''}}" data-tab="history" bindtap="switchTab">
+        <text>扫描历史</text>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'favorites'}}" class="list-section">
+      <view wx:if="{{favorites.length === 0}}" class="empty-state">
+        <text class="empty-text">还没有收藏任何添加剂</text>
+        <text class="empty-hint">在详情页点击收藏即可添加</text>
+      </view>
+      <view
+        wx:for="{{favorites}}"
+        wx:key="id"
+        class="fav-item safety-{{item.safetyClass}}"
+        data-id="{{item.id}}"
+        bindtap="onTapAdditive"
+      >
+        <view class="fav-left">
+          <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+          <view class="fav-info">
+            <text class="fav-name">{{item.name}}</text>
+            <text class="fav-summary">{{item.summary}}</text>
+          </view>
+        </view>
+        <view class="fav-remove" data-id="{{item.id}}" catchtap="onRemoveFavorite">
+          <text class="remove-text">移除</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'history'}}" class="list-section">
+      <view wx:if="{{history.length === 0}}" class="empty-state">
+        <text class="empty-text">还没有扫描记录</text>
+        <text class="empty-hint">去扫一扫页面解析配料表</text>
+      </view>
+      <view wx:for="{{history}}" wx:key="time" class="history-item">
+        <view class="history-header">
+          <text class="history-time">{{item.timeText}}</text>
+          <view class="history-stats">
+            <text class="history-stat safe" wx:if="{{item.result.safe}}">🟢{{item.result.safe}}</text>
+            <text class="history-stat warning" wx:if="{{item.result.warning}}">🟡{{item.result.warning}}</text>
+            <text class="history-stat danger" wx:if="{{item.result.danger}}">🔴{{item.result.danger}}</text>
+          </view>
+        </view>
+        <text class="history-text">{{item.text}}</text>
+      </view>
+      <view wx:if="{{history.length > 0}}" class="clear-btn" bindtap="onClearHistory">
+        <text>清空历史</text>
+      </view>
+    </view>
+
+    <view class="about-section">
+      <view class="about-card">
+        <text class="about-title">关于食安查</text>
+        <text class="about-text">食安查是一款食品添加剂查询工具，致力于帮助消费者快速了解食品添加剂的安全信息。</text>
+        <text class="about-text">所有数据来源于GB2760-2024、JECFA评估报告、FDA及EFSA等权威机构公开资料。</text>
+      </view>
+      <view class="disclaimer-card">
+        <text class="disclaimer-title">免责声明</text>
+        <text class="disclaimer-content">本应用提供的查询结果仅供信息参考，不构成安全评估或消费建议。食品添加剂的安全性取决于使用剂量和个体差异，如有健康疑虑请咨询专业医生。</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<my-tab-bar current="{{3}}"></my-tab-bar>

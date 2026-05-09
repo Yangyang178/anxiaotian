@@ -1,0 +1,86 @@
+<navigation-bar title="添加剂详情" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-content" wx:if="{{additive}}">
+    <view class="safety-banner" style="background-color: {{safetyBg}};">
+      <view class="banner-top">
+        <text class="banner-emoji">{{safetyEmoji}}</text>
+        <text class="banner-level" style="color: {{safetyColor}};">{{additive.safetyLevel}}</text>
+      </view>
+      <text class="banner-name">{{additive.name}}</text>
+      <view class="banner-aliases">
+        <text class="alias-tag" wx:for="{{additive.aliases}}" wx:key="*this">{{item}}</text>
+      </view>
+      <text class="banner-summary">{{additive.summary}}</text>
+    </view>
+
+    <view class="info-card">
+      <view class="info-row">
+        <text class="info-label">功能分类</text>
+        <text class="info-value">{{additive.category}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">编码</text>
+        <text class="info-value">{{additive.code}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">每日允许摄入量</text>
+        <text class="info-value">{{additive.adi}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">常见食品</text>
+        <text class="info-value">{{additive.commonFoods}}</text>
+      </view>
+    </view>
+
+    <view class="status-card">
+      <view class="status-title">国际标准对比</view>
+      <view class="status-grid">
+        <view class="status-item">
+          <text class="status-icon">{{gbIcon}}</text>
+          <text class="status-country">中国</text>
+          <text class="status-value">{{additive.gbStatus}}</text>
+        </view>
+        <view class="status-item">
+          <text class="status-icon">{{euIcon}}</text>
+          <text class="status-country">欧盟</text>
+          <text class="status-value">{{additive.euStatus}}</text>
+        </view>
+        <view class="status-item">
+          <text class="status-icon">{{usIcon}}</text>
+          <text class="status-country">美国</text>
+          <text class="status-value">{{additive.usStatus}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="detail-card" wx:if="{{additive.detail}}">
+      <view class="detail-title">详细说明</view>
+      <text class="detail-text">{{additive.detail}}</text>
+    </view>
+
+    <view class="warning-card" wx:if="{{additive.warning}}" style="background-color: #FFF2F0;">
+      <view class="warning-header">
+        <text class="warning-icon">⚠️</text>
+        <text class="warning-title">特殊提醒</text>
+      </view>
+      <text class="warning-text">{{additive.warning}}</text>
+    </view>
+
+    <view class="source-card">
+      <text class="source-text">数据来源：{{additive.source}}</text>
+    </view>
+
+    <view class="action-bar">
+      <view class="action-btn fav-btn {{isFav ? 'fav-active' : ''}}" bindtap="onToggleFav">
+        <text>{{isFav ? '已收藏' : '收藏'}}</text>
+      </view>
+      <button class="action-btn share-btn" open-type="share">
+        <text>分享</text>
+      </button>
+    </view>
+
+    <view class="disclaimer">
+      <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>
+    </view>
+  </view>
+</scroll-view>

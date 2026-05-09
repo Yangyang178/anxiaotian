@@ -1,0 +1,67 @@
+<navigation-bar title="分类浏览" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-content">
+    <view class="tab-header">
+      <view class="tab-btn {{activeTab === 'category' ? 'tab-active' : ''}}" data-tab="category" bindtap="switchTab">
+        <text>按功能</text>
+      </view>
+      <view class="tab-btn {{activeTab === 'safety' ? 'tab-active' : ''}}" data-tab="safety" bindtap="switchTab">
+        <text>按安全等级</text>
+      </view>
+    </view>
+
+    <view wx:if="{{activeTab === 'category'}}" class="filter-section">
+      <scroll-view class="filter-scroll" scroll-x>
+        <view
+          wx:for="{{categories}}"
+          wx:key="name"
+          class="filter-item {{currentCategory === item.name ? 'filter-active' : ''}}"
+          data-name="{{item.name}}"
+          bindtap="onSelectCategory"
+        >
+          <text>{{item.name}}({{item.count}})</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view wx:if="{{activeTab === 'safety'}}" class="filter-section">
+      <view class="safety-filters">
+        <view
+          wx:for="{{safetyLevels}}"
+          wx:key="key"
+          class="safety-filter {{currentSafetyLevel === item.key ? 'safety-filter-active' : ''}}"
+          style="{{currentSafetyLevel === item.key ? 'background-color:' + item.bg + ';border-color:' + item.color : ''}}"
+          data-level="{{item.key}}"
+          bindtap="onSelectSafetyLevel"
+        >
+          <text>{{item.emoji}} {{item.key}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="result-list">
+      <view
+        wx:for="{{displayList}}"
+        wx:key="id"
+        class="list-item safety-{{item.safetyClass}}"
+        data-id="{{item.id}}"
+        bindtap="onTapAdditive"
+      >
+        <view class="item-left">
+          <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+          <view class="item-info">
+            <text class="item-name">{{item.name}}</text>
+            <text class="item-code">{{item.code}}</text>
+          </view>
+        </view>
+        <view class="item-right">
+          <text class="item-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+        </view>
+      </view>
+      <view wx:if="{{displayList.length === 0}}" class="empty-state">
+        <text class="empty-text">暂无数据</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<my-tab-bar current="{{1}}"></my-tab-bar>

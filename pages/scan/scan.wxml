@@ -1,0 +1,106 @@
+<navigation-bar title="配料表解析" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-content">
+    <view wx:if="{{!hasResult}}" class="input-section">
+      <view class="input-card">
+        <view class="input-header">
+          <text class="input-title">粘贴或输入配料表</text>
+          <view class="paste-btn" bindtap="onPaste">
+            <text>粘贴</text>
+          </view>
+        </view>
+        <textarea
+          class="input-area"
+          placeholder="将食品包装上的配料表文字粘贴或输入到这里，如：小麦粉、白砂糖、植物油、山梨酸钾、阿斯巴甜..."
+          placeholder-class="input-placeholder"
+          value="{{inputText}}"
+          bindinput="onInputChange"
+          maxlength="2000"
+          auto-height
+        />
+        <view class="input-actions">
+          <view class="photo-btn" bindtap="onTakePhoto">
+            <view class="photo-icon"></view>
+            <text class="photo-text">拍照识别</text>
+          </view>
+          <view class="analyze-btn" bindtap="onAnalyze">
+            <text class="analyze-text">开始解析</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="tips-card">
+        <view class="tips-title">使用提示</view>
+        <text class="tips-item">1. 翻转食品包装，找到配料表区域</text>
+        <text class="tips-item">2. 复制配料表全部文字，粘贴到上方</text>
+        <text class="tips-item">3. 点击"开始解析"查看添加剂分析</text>
+        <text class="tips-item">4. 拍照识别功能即将上线</text>
+      </view>
+    </view>
+
+    <view wx:if="{{hasResult && result}}" class="result-section">
+      <view class="result-summary">
+        <view class="summary-title">解析结果</view>
+        <view class="summary-stats">
+          <view class="stat-item">
+            <text class="stat-number">{{result.total}}</text>
+            <text class="stat-label">添加剂</text>
+          </view>
+          <view class="stat-item stat-safe">
+            <text class="stat-number">{{result.safe}}</text>
+            <text class="stat-label">🟢 安全</text>
+          </view>
+          <view class="stat-item stat-warning">
+            <text class="stat-number">{{result.warning}}</text>
+            <text class="stat-label">🟡 争议</text>
+          </view>
+          <view class="stat-item stat-danger">
+            <text class="stat-number">{{result.danger}}</text>
+            <text class="stat-label">🔴 慎用</text>
+          </view>
+        </view>
+        <view class="summary-verdict" wx:if="{{result.danger > 0}}">
+          <text class="verdict-danger">⚠️ 含有{{result.danger}}种慎用添加剂，建议谨慎选择</text>
+        </view>
+        <view class="summary-verdict" wx:elif="{{result.warning > 0}}">
+          <text class="verdict-warning">⚠️ 含有{{result.warning}}种争议添加剂，建议适量食用</text>
+        </view>
+        <view class="summary-verdict" wx:else>
+          <text class="verdict-safe">✅ 所含添加剂均在安全范围内</text>
+        </view>
+      </view>
+
+      <view class="result-list">
+        <view
+          wx:for="{{result.items}}"
+          wx:key="id"
+          class="result-item safety-{{item.safetyClass}}"
+          data-id="{{item.id}}"
+          bindtap="onTapAdditive"
+        >
+          <view class="result-item-left">
+            <view class="safety-badge safety-badge-{{item.safetyClass}}">
+              <text>{{item.safetyLevel}}</text>
+            </view>
+            <view class="result-item-info">
+              <text class="result-item-name">{{item.name}}</text>
+              <text class="result-item-summary">{{item.summary}}</text>
+            </view>
+          </view>
+          <view class="result-item-arrow"></view>
+        </view>
+      </view>
+
+      <view class="result-actions">
+        <view class="reset-btn" bindtap="onReset">
+          <text>重新解析</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="disclaimer">
+      <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>
+    </view>
+  </view>
+</scroll-view>
+<my-tab-bar current="{{2}}"></my-tab-bar>

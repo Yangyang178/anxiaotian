@@ -1,0 +1,33 @@
+page {
+  --primary: #52C41A;
+  --primary-light: #F6FFED;
+  --primary-dark: #389E0D;
+  --safety: #52C41A;
+  --safety-light: #F6FFED;
+  --warning: #FAAD14;
+  --warning-light: #FFFBE6;
+  --danger: #FF4D4F;
+  --danger-light: #FFF2F0;
+  --bg: #F7F8FA;
+  --card: #FFFFFF;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-hint: #999999;
+  --border: #E8E8E8;
+  --radius: 16rpx;
+  --radius-lg: 24rpx;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

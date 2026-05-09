@@ -1,0 +1,31 @@
+<view class="tab-bar">
+  <view
+    wx:for="{{list}}"
+    wx:key="pagePath"
+    class="tab-item {{current === index ? 'active' : ''}}"
+    data-path="{{item.pagePath}}"
+    bindtap="onSwitchTab"
+  >
+    <view class="tab-icon">
+      <view wx:if="{{item.icon === 'home'}}" class="icon-home">
+        <view class="icon-home-roof"></view>
+        <view class="icon-home-body"></view>
+      </view>
+      <view wx:if="{{item.icon === 'category'}}" class="icon-category">
+        <view class="icon-category-dot"></view>
+        <view class="icon-category-dot"></view>
+        <view class="icon-category-dot"></view>
+        <view class="icon-category-dot"></view>
+      </view>
+      <view wx:if="{{item.icon === 'scan'}}" class="icon-scan">
+        <view class="icon-scan-frame"></view>
+        <view class="icon-scan-line"></view>
+      </view>
+      <view wx:if="{{item.icon === 'mine'}}" class="icon-mine">
+        <view class="icon-mine-head"></view>
+        <view class="icon-mine-body"></view>
+      </view>
+    </view>
+    <text class="tab-text">{{item.text}}</text>
+  </view>
+</view>
