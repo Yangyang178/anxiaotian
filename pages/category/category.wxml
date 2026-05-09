@@ -11,7 +11,7 @@
     </view>
 
     <view wx:if="{{activeTab === 'category'}}" class="filter-section">
-      <scroll-view class="filter-scroll" scroll-x>
+      <view class="filter-wrap">
         <view
           wx:for="{{categories}}"
           wx:key="name"
@@ -21,7 +21,7 @@
         >
           <text>{{item.name}}({{item.count}})</text>
         </view>
-      </scroll-view>
+      </view>
     </view>
 
     <view wx:if="{{activeTab === 'safety'}}" class="filter-section">

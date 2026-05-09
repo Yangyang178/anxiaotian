@@ -244,6 +244,36 @@ page {
   color: #FF4D4F;
 }
 
+.view-all-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 0;
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.view-all-text {
+  font-size: 26rpx;
+  color: #52C41A;
+  margin-right: 8rpx;
+}
+
+.view-all-arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 3rpx solid #52C41A;
+  border-right: 3rpx solid #52C41A;
+  transform: rotate(135deg);
+  transition: transform 0.2s;
+}
+
+.view-all-arrow.arrow-up {
+  transform: rotate(-45deg);
+}
+
 .about-section {
   margin-top: 16rpx;
 }

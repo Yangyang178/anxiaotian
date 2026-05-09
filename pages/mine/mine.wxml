@@ -36,24 +36,30 @@
         <text class="empty-text">还没有收藏任何添加剂</text>
         <text class="empty-hint">在详情页点击收藏即可添加</text>
       </view>
-      <view
-        wx:for="{{favorites}}"
-        wx:key="id"
-        class="fav-item safety-{{item.safetyClass}}"
-        data-id="{{item.id}}"
-        bindtap="onTapAdditive"
-      >
-        <view class="fav-left">
-          <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
-          <view class="fav-info">
-            <text class="fav-name">{{item.name}}</text>
-            <text class="fav-summary">{{item.summary}}</text>
+      <block wx:else>
+        <view
+          wx:for="{{displayFavorites}}"
+          wx:key="id"
+          class="fav-item safety-{{item.safetyClass}}"
+          data-id="{{item.id}}"
+          bindtap="onTapAdditive"
+        >
+          <view class="fav-left">
+            <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+            <view class="fav-info">
+              <text class="fav-name">{{item.name}}</text>
+              <text class="fav-summary">{{item.summary}}</text>
+            </view>
+          </view>
+          <view class="fav-remove" data-id="{{item.id}}" catchtap="onRemoveFavorite">
+            <text class="remove-text">移除</text>
           </view>
         </view>
-        <view class="fav-remove" data-id="{{item.id}}" catchtap="onRemoveFavorite">
-          <text class="remove-text">移除</text>
+        <view wx:if="{{favoriteCount > 3}}" class="view-all-btn" bindtap="onToggleFavorites">
+          <text class="view-all-text">{{showAllFavorites ? '收起' : '查看全部(' + favoriteCount + ')'}}</text>
+          <view class="view-all-arrow {{showAllFavorites ? 'arrow-up' : ''}}"></view>
         </view>
-      </view>
+      </block>
     </view>
 
     <view wx:if="{{activeTab === 'history'}}" class="list-section">
@@ -61,20 +67,26 @@
         <text class="empty-text">还没有扫描记录</text>
         <text class="empty-hint">去扫一扫页面解析配料表</text>
       </view>
-      <view wx:for="{{history}}" wx:key="time" class="history-item">
-        <view class="history-header">
-          <text class="history-time">{{item.timeText}}</text>
-          <view class="history-stats">
-            <text class="history-stat safe" wx:if="{{item.result.safe}}">🟢{{item.result.safe}}</text>
-            <text class="history-stat warning" wx:if="{{item.result.warning}}">🟡{{item.result.warning}}</text>
-            <text class="history-stat danger" wx:if="{{item.result.danger}}">🔴{{item.result.danger}}</text>
+      <block wx:else>
+        <view wx:for="{{displayHistory}}" wx:key="time" class="history-item">
+          <view class="history-header">
+            <text class="history-time">{{item.timeText}}</text>
+            <view class="history-stats">
+              <text class="history-stat safe" wx:if="{{item.result.safe}}">🟢{{item.result.safe}}</text>
+              <text class="history-stat warning" wx:if="{{item.result.warning}}">🟡{{item.result.warning}}</text>
+              <text class="history-stat danger" wx:if="{{item.result.danger}}">🔴{{item.result.danger}}</text>
+            </view>
           </view>
+          <text class="history-text">{{item.text}}</text>
         </view>
-        <text class="history-text">{{item.text}}</text>
-      </view>
-      <view wx:if="{{history.length > 0}}" class="clear-btn" bindtap="onClearHistory">
-        <text>清空历史</text>
-      </view>
+        <view wx:if="{{historyCount > 3}}" class="view-all-btn" bindtap="onToggleHistory">
+          <text class="view-all-text">{{showAllHistory ? '收起' : '查看全部(' + historyCount + ')'}}</text>
+          <view class="view-all-arrow {{showAllHistory ? 'arrow-up' : ''}}"></view>
+        </view>
+        <view class="clear-btn" bindtap="onClearHistory">
+          <text>清空历史</text>
+        </view>
+      </block>
     </view>
 
     <view class="about-section">
