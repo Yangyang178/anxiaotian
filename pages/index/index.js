@@ -65,5 +65,9 @@ Page({
   onTapSafetyLevel(e) {
     const { level } = e.currentTarget.dataset
     wx.switchTab({ url: '/pages/category/category' })
+  },
+
+  onGoCompare() {
+    wx.navigateTo({ url: '/pages/compare/compare' })
   }
 })

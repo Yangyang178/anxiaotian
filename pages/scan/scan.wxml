@@ -19,22 +19,36 @@
           auto-height
         />
         <view class="input-actions">
-          <view class="photo-btn" bindtap="onTakePhoto">
-            <view class="photo-icon"></view>
-            <text class="photo-text">拍照识别</text>
+          <view class="action-left">
+            <view class="photo-btn" bindtap="onTakePhoto">
+              <view class="photo-icon"></view>
+              <text class="photo-text">拍照</text>
+            </view>
+            <view class="photo-btn" bindtap="onChooseImage">
+              <view class="album-icon"></view>
+              <text class="photo-text">相册</text>
+            </view>
           </view>
-          <view class="analyze-btn" bindtap="onAnalyze">
-            <text class="analyze-text">开始解析</text>
+          <view class="analyze-btn {{isOcrLoading ? 'btn-disabled' : ''}}" bindtap="onAnalyze">
+            <text class="analyze-text">{{isOcrLoading ? '识别中...' : '开始解析'}}</text>
           </view>
+        </view>
+      </view>
+
+      <view class="ocr-tips">
+        <view class="ocr-tips-icon"></view>
+        <view class="ocr-tips-content">
+          <text class="ocr-tips-title">拍照识别</text>
+          <text class="ocr-tips-desc">对准配料表拍照，自动识别并解析添加剂</text>
         </view>
       </view>
 
       <view class="tips-card">
         <view class="tips-title">使用提示</view>
         <text class="tips-item">1. 翻转食品包装，找到配料表区域</text>
-        <text class="tips-item">2. 复制配料表全部文字，粘贴到上方</text>
-        <text class="tips-item">3. 点击"开始解析"查看添加剂分析</text>
-        <text class="tips-item">4. 拍照识别功能即将上线</text>
+        <text class="tips-item">2. 拍照或从相册选择配料表图片</text>
+        <text class="tips-item">3. 也可直接复制文字粘贴到上方</text>
+        <text class="tips-item">4. 点击"开始解析"查看添加剂分析</text>
       </view>
     </view>
 

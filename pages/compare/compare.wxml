@@ -1,0 +1,259 @@
+<navigation-bar title="对比查询" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page-content">
+
+    <view wx:if="{{showSearch}}">
+      <view class="search-section">
+        <view class="search-bar">
+          <view class="search-icon-wrap">
+            <view class="search-icon-circle"></view>
+            <view class="search-icon-handle"></view>
+          </view>
+          <input
+            class="search-input"
+            placeholder='搜添加剂名称或编号'
+            placeholder-class="search-placeholder"
+            value="{{keyword}}"
+            bindinput="onSearchInput"
+            confirm-type="search"
+          />
+          <view class="search-clear" wx:if="{{keyword}}" bindtap="onClearSearch">
+            <view class="clear-icon"></view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{searchResults.length > 0}}" class="search-results">
+        <view class="result-header">
+          <text class="result-count">找到 {{searchResults.length}} 个结果</text>
+        </view>
+        <view
+          wx:for="{{searchResults}}"
+          wx:key="id"
+          class="additive-item safety-{{item.safetyClass}}"
+          data-id="{{item.id}}"
+          bindtap="onSelectAdditive"
+        >
+          <view class="item-left">
+            <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+            <view class="item-info">
+              <text class="item-name">{{item.name}}</text>
+              <text class="item-code">{{item.code}}</text>
+            </view>
+          </view>
+          <view class="item-right">
+            <text class="item-category">{{item.category}}</text>
+            <text class="item-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+            <view class="add-icon-wrap">
+              <view class="add-icon"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="selected-section">
+        <view class="section-header">
+          <text class="section-title">已选择 ({{selectedItems.length}}/{{maxSelect}})</text>
+        </view>
+        <view wx:if="{{selectedItems.length === 0}}" class="empty-selected">
+          <view class="empty-icon-wrap">
+            <view class="empty-icon-circle"></view>
+            <view class="empty-icon-plus"></view>
+          </view>
+          <text class="empty-text">搜索并添加添加剂进行对比</text>
+        </view>
+        <view wx:else class="selected-list">
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="selected-card safety-{{item.safetyClass}}"
+            data-id="{{item.id}}"
+            bindtap="onTapAdditive"
+          >
+            <view class="selected-main">
+              <view class="selected-left">
+                <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+                <view class="selected-info">
+                  <text class="selected-name">{{item.name}}</text>
+                  <text class="selected-code">{{item.code}}</text>
+                </view>
+              </view>
+              <view class="selected-right">
+                <text class="selected-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+                <view class="remove-btn" data-index="{{index}}" catchtap="onRemoveItem">
+                  <view class="remove-icon"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="compare-action">
+        <view class="compare-btn {{selectedItems.length >= 2 ? 'compare-btn-active' : 'compare-btn-disabled'}}" bindtap="onStartCompare">
+          <text>{{selectedItems.length < 2 ? '请至少选择2种' : '开始对比'}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:else>
+      <view class="compare-header">
+        <view class="compare-names">
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="compare-name-tag safety-{{item.safetyClass}}"
+            data-id="{{item.id}}"
+            bindtap="onTapAdditive"
+          >
+            <view class="tag-dot safety-dot-{{item.safetyClass}}"></view>
+            <text class="tag-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="compare-table">
+        <view class="table-row table-header-row">
+          <view class="table-label-cell">
+            <text class="table-header-text">对比项</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-header-text table-header-{{item.safetyClass}}">{{item.name}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">安全等级</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="safety-badge safety-badge-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">编码</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.code}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">功能分类</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.category}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">国标状态</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.gbStatus}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">欧盟状态</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.euStatus}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">美国状态</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.usStatus}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">每日允许摄入量</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.adi}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">常见食品</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text">{{item.commonFoods}}</text>
+          </view>
+        </view>
+
+        <view class="table-row">
+          <view class="table-label-cell">
+            <text class="table-label-text">特殊提醒</text>
+          </view>
+          <view
+            wx:for="{{selectedItems}}"
+            wx:key="id"
+            class="table-value-cell"
+          >
+            <text class="table-value-text {{item.warning ? 'warning-text' : 'no-warning'}}">{{item.warning || '无'}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="compare-action">
+        <view class="compare-btn compare-btn-reset" bindtap="onReset">
+          <text>重新选择</text>
+        </view>
+      </view>
+
+      <view class="disclaimer">
+        <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>

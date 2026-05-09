@@ -4,8 +4,15 @@
     "pages/category/category",
     "pages/scan/scan",
     "pages/mine/mine",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/compare/compare"
   ],
+  "plugins": {
+    "ocr-plugin": {
+      "version": "0.3.5",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",

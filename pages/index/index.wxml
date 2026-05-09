@@ -117,6 +117,17 @@
         </view>
       </view>
 
+      <view class="compare-entry" bindtap="onGoCompare">
+        <view class="compare-entry-left">
+          <view class="compare-entry-icon"></view>
+          <view class="compare-entry-text">
+            <text class="compare-entry-title">添加剂对比</text>
+            <text class="compare-entry-desc">选择2-4种添加剂，对比安全等级和国际标准</text>
+          </view>
+        </view>
+        <view class="compare-entry-arrow"></view>
+      </view>
+
       <view class="disclaimer">
         <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>
       </view>
