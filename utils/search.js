@@ -66,40 +66,116 @@ function getById(id) {
   return addSafetyClass(item)
 }
 
+function cleanIngredientText(text) {
+  let cleaned = text
+  cleaned = cleaned.replace(/[\d]+\.?\d*%/g, '')
+  cleaned = cleaned.replace(/[\uff08(][^)\uff09]{0,20}[\uff09)]/g, '')
+  cleaned = cleaned.replace(/[\u2264\u2265<>~\-]\s*\d+\.?\d*/g, '')
+  return cleaned.trim()
+}
+
+function buildAliasLookup() {
+  const lookup = {}
+  for (const item of additiveData) {
+    lookup[item.name] = item
+    if (item.aliases && item.aliases.length > 0) {
+      for (const alias of item.aliases) {
+        if (alias && alias.length >= 2 && !lookup[alias]) {
+          lookup[alias] = item
+        }
+      }
+    }
+  }
+  return lookup
+}
+
+const aliasLookup = buildAliasLookup()
+
 function parseIngredientList(text) {
   if (!text) return { total: 0, safe: 0, warning: 0, danger: 0, items: [] }
-  const parts = text.split(/[\u3001\uFF0C,\s\uFF1B\u00B7\uFF1A:\uFF08\uFF09()\[\]\u3010\u3011\/;]+/).filter(p => p.trim().length > 0)
+
+  const cleanedText = cleanIngredientText(text)
+
+  const parts = cleanedText
+    .split(/[\u3001\uFF0C,\s\uFF1B\u00B7\uFF1A:\uFF08\uFF09()\[\]\u3010\u3011\/\\;]+/)
+    .filter(p => p.trim().length > 0)
+    .map(p => p.trim())
+
   const matched = []
   const seen = new Set()
 
   for (const part of parts) {
-    const trimmed = part.trim()
-    if (!trimmed) continue
-    let found = false
+    if (part.length < 2) continue
+    const directMatch = aliasLookup[part]
+    if (directMatch && !seen.has(directMatch.id)) {
+      matched.push(directMatch)
+      seen.add(directMatch.id)
+      continue
+    }
+    const partLower = part.toLowerCase()
     for (const item of additiveData) {
       if (seen.has(item.id)) continue
-      if (item.name === trimmed || (item.aliases && item.aliases.some(a => a === trimmed))) {
+      if (item.name === part) {
         matched.push(item)
         seen.add(item.id)
-        found = true
+        break
+      }
+      if (item.aliases && item.aliases.some(a => a === part)) {
+        matched.push(item)
+        seen.add(item.id)
+        break
+      }
+      if (item.code && item.code.toLowerCase() === partLower) {
+        matched.push(item)
+        seen.add(item.id)
         break
       }
     }
-    if (found) continue
+  }
+
+  for (const part of parts) {
+    if (part.length < 2) continue
+    let foundAny = false
     for (const item of additiveData) {
       if (seen.has(item.id)) continue
-      if (trimmed.includes(item.name) || (item.aliases && item.aliases.some(a => trimmed.includes(a) && a.length >= 2))) {
+      const nameLen = (item.name || '').length
+      if (nameLen < 2) continue
+      if (part.includes(item.name)) {
         matched.push(item)
         seen.add(item.id)
+        foundAny = true
+        continue
+      }
+      if (item.aliases) {
+        for (const alias of item.aliases) {
+          if (alias.length >= 2 && part.includes(alias)) {
+            matched.push(item)
+            seen.add(item.id)
+            foundAny = true
+            break
+          }
+        }
       }
     }
   }
 
   for (const item of additiveData) {
     if (seen.has(item.id)) continue
-    if (text.includes(item.name)) {
+    const nameLen = (item.name || '').length
+    if (nameLen < 3) continue
+    if (cleanedText.includes(item.name)) {
       matched.push(item)
       seen.add(item.id)
+      continue
+    }
+    if (item.aliases) {
+      for (const alias of item.aliases) {
+        if (alias.length >= 3 && cleanedText.includes(alias)) {
+          matched.push(item)
+          seen.add(item.id)
+          break
+        }
+      }
     }
   }
 

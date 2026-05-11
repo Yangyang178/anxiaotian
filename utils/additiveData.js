@@ -1,11 +1,11 @@
-const additiveData = [
+﻿const additiveData = [
 
   // ==================== 防腐剂 ====================
 
   {
     id: 'e202',
     name: '山梨酸钾',
-    aliases: ['E202', '山梨酸', 'Potassium Sorbate'],
+    aliases: ['E202', '山梨酸', 'Potassium Sorbate', '山梨酸钾盐'],
     code: 'E202',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -22,7 +22,7 @@ const additiveData = [
   {
     id: 'e211',
     name: '苯甲酸钠',
-    aliases: ['E211', '苯甲酸', 'Sodium Benzoate'],
+    aliases: ['E211', '苯甲酸', 'Sodium Benzoate', '安息香酸钠'],
     code: 'E211',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -56,7 +56,7 @@ const additiveData = [
   {
     id: 'e282',
     name: '丙酸钙',
-    aliases: ['E282', '丙酸盐', 'Calcium Propionate'],
+    aliases: ['E282', '丙酸盐', 'Calcium Propionate', '丙酸钙盐'],
     code: 'E282',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -73,7 +73,7 @@ const additiveData = [
   {
     id: 'e220',
     name: '二氧化硫',
-    aliases: ['E220', '亚硫酸酐', 'Sulphur Dioxide'],
+    aliases: ['E220', '亚硫酸酐', 'Sulphur Dioxide', '硫磺'],
     code: 'E220',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -107,7 +107,7 @@ const additiveData = [
   {
     id: 'e249',
     name: '亚硝酸钾',
-    aliases: ['E249', 'Potassium Nitrite'],
+    aliases: ['E249', 'Potassium Nitrite', '亚硝酸钾盐'],
     code: 'E249',
     category: '防腐剂',
     safetyLevel: '慎用',
@@ -118,13 +118,13 @@ const additiveData = [
     commonFoods: '火腿、香肠、培根、腊肉',
     summary: '与亚硝酸钠作用相同，致癌风险需警惕',
     detail: '亚硝酸钾的功能和风险与亚硝酸钠完全一致，在肉制品中起护色和防腐作用，同样可在胃内生成致癌的N-亚硝胺。国标对两者的使用限量严格一致，通常不同时使用。',
-    warning: '儿童和孕妇应尽量减少加工肉制品的摄入',
+    warning: '胃内可生成致癌的N-亚硝胺，儿童和孕妇应尽量减少加工肉制品的摄入',
     source: 'GB2760-2024 / JECFA第44次评估报告'
   },
   {
     id: 'e251',
     name: '硝酸钠',
-    aliases: ['E251', 'Sodium Nitrate'],
+    aliases: ['E251', 'Sodium Nitrate', '钠硝石'],
     code: 'E251',
     category: '防腐剂',
     safetyLevel: '慎用',
@@ -141,7 +141,7 @@ const additiveData = [
   {
     id: 'e214',
     name: '对羟基苯甲酸乙酯',
-    aliases: ['E214', '尼泊金乙酯', 'Ethyl p-Hydroxybenzoate'],
+    aliases: ['E214', '尼泊金乙酯', 'Ethyl p-Hydroxybenzoate', '羟苯乙酯'],
     code: 'E214',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -152,13 +152,13 @@ const additiveData = [
     commonFoods: '酱油、醋、饮料、果酱',
     summary: '尼泊金酯类防腐剂，存在内分泌干扰争议',
     detail: '对羟基苯甲酸乙酯通过破坏微生物细胞膜和抑制酶活性实现防腐，防腐效果受pH影响较小。争议主要来自其与对羟基苯甲酸酯类（Parabens）的关联——部分研究显示Parabens具有弱雌激素活性，但食品中的暴露量远低于产生内分泌影响的阈值。',
-    warning: '婴幼儿食品中不建议使用',
+    warning: '具有弱雌激素活性争议，欧盟限制在儿童食品中使用，婴幼儿应避免',
     source: 'GB2760-2024 / JECFA第7次评估报告 / EFSA重新评估意见'
   },
   {
     id: 'e234',
     name: '乳酸链球菌素',
-    aliases: ['E234', '尼生素', 'Nisin'],
+    aliases: ['E234', '尼生素', 'Nisin', '乳链菌肽'],
     code: 'E234',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -178,7 +178,7 @@ const additiveData = [
   {
     id: 'e951',
     name: '阿斯巴甜',
-    aliases: ['E951', '甜味素', 'Aspartame'],
+    aliases: ['E951', '甜味素', 'Aspartame', '阿斯巴坦'],
     code: 'E951',
     category: '甜味剂',
     safetyLevel: '争议',
@@ -212,7 +212,7 @@ const additiveData = [
   {
     id: 'e950',
     name: '安赛蜜',
-    aliases: ['E950', '乙酰磺胺酸钾', 'Acesulfame K'],
+    aliases: ['E950', '乙酰磺胺酸钾', 'Acesulfame K', 'A-K糖'],
     code: 'E950',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -240,13 +240,13 @@ const additiveData = [
     commonFoods: '蜜饯、饮料、酱菜、桌面甜味剂',
     summary: '最古老的人工甜味剂，曾因动物实验致癌争议被警告',
     detail: '糖精钠甜度约为蔗糖的300-500倍，不被人体代谢直接排出。早期大鼠实验显示高剂量可致膀胱癌，但后续研究证实该机制为大鼠特有（与尿液成分相关），不适用于人类。尽管如此，其安全性争议至今未完全消除，欧盟限制其在婴幼儿食品中使用。',
-    warning: '婴幼儿食品中不允许使用',
+    warning: '早期动物实验曾显示致癌风险（后被证实不适用于人类），婴幼儿食品中不允许使用',
     source: 'GB2760-2024 / JECFA第41次评估报告'
   },
   {
     id: 'e952',
     name: '甜蜜素',
-    aliases: ['E952', '环己基氨基磺酸钠', 'Cyclamate'],
+    aliases: ['E952', '环己基氨基磺酸钠', 'Cyclamate', '环拉酸'],
     code: 'E952',
     category: '甜味剂',
     safetyLevel: '争议',
@@ -256,13 +256,13 @@ const additiveData = [
     commonFoods: '蜜饯、凉果、饮料、果冻',
     summary: '美国禁用但中欧允许的甜味剂，致癌争议持续',
     detail: '甜蜜素甜度约为蔗糖的30-50倍，1969年因大鼠实验显示可能致癌被美国FDA禁用至今。后续大量研究未能证实其对人类的致癌性，JECFA和EFSA均认为安全，但美国始终未解除禁令，成为国际食品贸易的争议焦点。',
-    warning: '美国禁用，出口食品需注意',
+    warning: '美国因早期动物致癌实验禁用至今，中欧评估认为安全，婴幼儿食品不宜使用',
     source: 'GB2760-2024 / JECFA第82次评估报告'
   },
   {
     id: 'e967',
     name: '木糖醇',
-    aliases: ['E967', 'Xylitol'],
+    aliases: ['E967', 'Xylitol', '戊五醇'],
     code: 'E967',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -296,7 +296,7 @@ const additiveData = [
   {
     id: 'e965',
     name: '麦芽糖醇',
-    aliases: ['E965', 'Maltitol'],
+    aliases: ['E965', 'Maltitol', '麦芽糖醇液'],
     code: 'E965',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -350,7 +350,7 @@ const additiveData = [
   {
     id: 'e102',
     name: '柠檬黄',
-    aliases: ['E102', '酒石黄', 'Tartrazine'],
+    aliases: ['E102', '酒石黄', 'Tartrazine', '肼黄'],
     code: 'E102',
     category: '色素',
     safetyLevel: '争议',
@@ -367,7 +367,7 @@ const additiveData = [
   {
     id: 'e110',
     name: '日落黄',
-    aliases: ['E110', '晚霞黄', 'Sunset Yellow'],
+    aliases: ['E110', '晚霞黄', 'Sunset Yellow', '橘黄'],
     code: 'E110',
     category: '色素',
     safetyLevel: '争议',
@@ -384,7 +384,7 @@ const additiveData = [
   {
     id: 'e124',
     name: '胭脂红',
-    aliases: ['E124', '丽春红4R', 'Ponceau 4R'],
+    aliases: ['E124', '丽春红4R', 'Ponceau 4R', '大红'],
     code: 'E124',
     category: '色素',
     safetyLevel: '争议',
@@ -401,7 +401,7 @@ const additiveData = [
   {
     id: 'e123',
     name: '苋菜红',
-    aliases: ['E123', 'Amaranth'],
+    aliases: ['E123', 'Amaranth', '鸡冠花红'],
     code: 'E123',
     category: '色素',
     safetyLevel: '慎用',
@@ -412,7 +412,7 @@ const additiveData = [
     commonFoods: '饮料、糖果、山楂制品',
     summary: '合成红色素，多国限制或禁止，儿童应避免',
     detail: '苋菜红属偶氮类合成色素，早期动物实验显示高剂量可能增加大鼠肿瘤发生率，JECFA将ADI设定为极低的0-0.5mg/kg体重。美国自1976年起禁止在食品中使用，欧盟仅允许在少数酒精饮料中使用，中国限制使用范围且用量严格。',
-    warning: '儿童和孕妇应避免含苋菜红的食品',
+    warning: '动物实验显示潜在致癌风险，美国已禁用，儿童和孕妇应避免',
     source: 'GB2760-2024 / JECFA第13次评估报告'
   },
   {
@@ -429,13 +429,13 @@ const additiveData = [
     commonFoods: '鸡尾酒樱桃、糖果、烘焙装饰',
     summary: '合成红色素，ADI值极低，使用范围受限',
     detail: '赤藓红属氧杂蒽类色素，早期研究显示高剂量可能影响甲状腺功能，JECFA据此将ADI设定为极低的0-0.1mg/kg体重。欧盟仅允许用于鸡尾酒樱桃等极少数食品，中国也限制使用范围，但美国仍广泛允许使用。',
-    warning: '甲状腺疾病患者应注意',
+    warning: '高剂量可能影响甲状腺功能，甲状腺疾病患者应避免，使用范围受严格限制',
     source: 'GB2760-2024 / JECFA第18次评估报告'
   },
   {
     id: 'e129',
     name: '诱惑红',
-    aliases: ['E129', 'Allura Red'],
+    aliases: ['E129', 'Allura Red', '阿洛拉红'],
     code: 'E129',
     category: '色素',
     safetyLevel: '争议',
@@ -452,7 +452,7 @@ const additiveData = [
   {
     id: 'e133',
     name: '亮蓝',
-    aliases: ['E133', 'Brilliant Blue FCF'],
+    aliases: ['E133', 'Brilliant Blue FCF', '亮蓝FCF'],
     code: 'E133',
     category: '色素',
     safetyLevel: '安全',
@@ -469,7 +469,7 @@ const additiveData = [
   {
     id: 'e132',
     name: '靛蓝',
-    aliases: ['E132', 'Indigotine'],
+    aliases: ['E132', 'Indigotine', '靛蓝胭脂红'],
     code: 'E132',
     category: '色素',
     safetyLevel: '安全',
@@ -486,7 +486,7 @@ const additiveData = [
   {
     id: 'e160a',
     name: 'β-胡萝卜素',
-    aliases: ['E160a', 'Beta-Carotene', 'β胡萝卜素'],
+    aliases: ['E160a', 'Beta-Carotene', 'β胡萝卜素', '贝塔胡萝卜素', '胡萝卜素'],
     code: 'E160a',
     category: '色素',
     safetyLevel: '安全',
@@ -503,7 +503,7 @@ const additiveData = [
   {
     id: 'e150d',
     name: '焦糖色',
-    aliases: ['E150d', '焦糖色素', 'Caramel Color IV'],
+    aliases: ['E150d', '焦糖色素', 'Caramel Color IV', '酱色'],
     code: 'E150d',
     category: '色素',
     safetyLevel: '争议',
@@ -514,13 +514,13 @@ const additiveData = [
     commonFoods: '可乐、酱油、醋、啤酒',
     summary: '最广泛使用的食用色素，IV类含4-MEI引发争议',
     detail: '焦糖色分为四类，其中亚硫酸铵法生产的IV类（E150d）在制造过程中产生副产物4-甲基咪唑（4-MEI），IARC将4-MEI列为2B类可能致癌物。虽然可乐中4-MEI含量极低，但加州65号提案要求标注警示，争议持续至今。',
-    warning: '长期大量饮用含焦糖色IV类的可乐类饮料需注意',
+    warning: 'IV类含4-甲基咪唑（IARC 2B类可能致癌物），长期大量饮用可乐类饮料需注意',
     source: 'GB2760-2024 / JECFA第79次评估报告 / 加州65号提案'
   },
   {
     id: 'e141',
     name: '叶绿素铜钠盐',
-    aliases: ['E141', 'Sodium Copper Chlorophyllin'],
+    aliases: ['E141', 'Sodium Copper Chlorophyllin', '叶绿素铜钠'],
     code: 'E141',
     category: '色素',
     safetyLevel: '安全',
@@ -537,7 +537,7 @@ const additiveData = [
   {
     id: 'monascus-red',
     name: '红曲红',
-    aliases: ['红曲色素', 'Monascus Red'],
+    aliases: ['红曲色素', 'Monascus Red', '红曲米红'],
     code: '—',
     category: '色素',
     safetyLevel: '安全',
@@ -554,7 +554,7 @@ const additiveData = [
   {
     id: 'e160c',
     name: '辣椒红',
-    aliases: ['E160c', 'Paprika Extract'],
+    aliases: ['E160c', 'Paprika Extract', '辣椒红素'],
     code: 'E160c',
     category: '色素',
     safetyLevel: '安全',
@@ -571,7 +571,7 @@ const additiveData = [
   {
     id: 'e162',
     name: '甜菜红',
-    aliases: ['E162', 'Beetroot Red', '甜菜根红'],
+    aliases: ['E162', 'Beetroot Red', '甜菜根红', '甜菜红素'],
     code: 'E162',
     category: '色素',
     safetyLevel: '安全',
@@ -588,7 +588,7 @@ const additiveData = [
   {
     id: 'gardenia-yellow',
     name: '栀子黄',
-    aliases: ['栀子黄色素', 'Gardenia Yellow'],
+    aliases: ['栀子黄色素', 'Gardenia Yellow', '藏花黄'],
     code: '—',
     category: '色素',
     safetyLevel: '安全',
@@ -625,7 +625,7 @@ const additiveData = [
   {
     id: 'e466',
     name: '羧甲基纤维素钠',
-    aliases: ['E466', 'CMC-Na', 'Sodium Carboxymethyl Cellulose'],
+    aliases: ['E466', 'CMC-Na', 'Sodium Carboxymethyl Cellulose', 'CMC'],
     code: 'E466',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -653,13 +653,13 @@ const additiveData = [
     commonFoods: '冰淇淋、果冻、肉制品、巧克力奶',
     summary: '天然海藻胶，降解型卡拉胶的肠道安全性存争议',
     detail: '卡拉胶从红藻中提取，分为κ、ι、λ三种类型，具有优异的凝胶和增稠性能。争议焦点在于降解型卡拉胶（分子量低于食品级）在动物实验中显示可引起肠道炎症和溃疡，但食品级卡拉胶分子量大，不被肠道吸收，JECFA认为食品级产品安全。',
-    warning: '消化系统敏感者建议适量',
+    warning: '降解型卡拉胶在动物实验中可致肠道炎症，消化系统敏感者和婴幼儿应适量',
     source: 'GB2760-2024 / JECFA第79次评估报告'
   },
   {
     id: 'e440',
     name: '果胶',
-    aliases: ['E440', 'Pectin'],
+    aliases: ['E440', 'Pectin', '果胶粉'],
     code: 'E440',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -676,7 +676,7 @@ const additiveData = [
   {
     id: 'gelatin',
     name: '明胶',
-    aliases: ['Gelatin', '食用明胶'],
+    aliases: ['Gelatin', '食用明胶', '吉利丁'],
     code: '—',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -693,7 +693,7 @@ const additiveData = [
   {
     id: 'e406',
     name: '琼脂',
-    aliases: ['E406', 'Agar', '琼胶'],
+    aliases: ['E406', 'Agar', '琼胶', '冻粉', '洋菜'],
     code: 'E406',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -727,7 +727,7 @@ const additiveData = [
   {
     id: 'e412',
     name: '瓜尔胶',
-    aliases: ['E412', 'Guar Gum', '瓜耳胶'],
+    aliases: ['E412', 'Guar Gum', '瓜耳胶', '瓜尔豆胶'],
     code: 'E412',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -744,7 +744,7 @@ const additiveData = [
   {
     id: 'e410',
     name: '刺槐豆胶',
-    aliases: ['E410', 'Locust Bean Gum', '角豆胶'],
+    aliases: ['E410', 'Locust Bean Gum', '角豆胶', '槐豆胶'],
     code: 'E410',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -761,7 +761,7 @@ const additiveData = [
   {
     id: 'e418',
     name: '结冷胶',
-    aliases: ['E418', 'Gellan Gum'],
+    aliases: ['E418', 'Gellan Gum', '洁冷胶'],
     code: 'E418',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -781,7 +781,7 @@ const additiveData = [
   {
     id: 'e322',
     name: '大豆磷脂',
-    aliases: ['E322', '卵磷脂', 'Soy Lecithin'],
+    aliases: ['E322', '卵磷脂', 'Soy Lecithin', '大豆卵磷脂'],
     code: 'E322',
     category: '乳化剂',
     safetyLevel: '安全',
@@ -815,7 +815,7 @@ const additiveData = [
   {
     id: 'e471',
     name: '单双甘油脂肪酸酯',
-    aliases: ['E471', '单甘酯', 'Mono- and Diglycerides of Fatty Acids'],
+    aliases: ['E471', '单甘酯', 'Mono- and Diglycerides of Fatty Acids', '单双甘酯'],
     code: 'E471',
     category: '乳化剂',
     safetyLevel: '安全',
@@ -843,7 +843,7 @@ const additiveData = [
     commonFoods: '冰淇淋、沙拉酱、调味品、饮料',
     summary: '高效乳化剂，肠道菌群影响引发争议',
     detail: '聚山梨醇酯80是非离子型表面活性剂，乳化能力极强，少量即可稳定乳液体系。争议来自部分研究显示其可能改变肠道菌群组成和增加肠道通透性，但这些研究多使用远高于食品用量的浓度，实际食品暴露量下的风险尚不明确。',
-    warning: '肠道敏感者建议适量',
+    warning: '可能影响肠道菌群和肠道通透性，肠道敏感者建议适量',
     source: 'GB2760-2024 / JECFA第17次评估报告'
   },
   {
@@ -920,7 +920,7 @@ const additiveData = [
   {
     id: 'e319',
     name: '特丁基对苯二酚',
-    aliases: ['E319', 'TBHQ', 'Tertiary Butylhydroquinone'],
+    aliases: ['E319', 'TBHQ', 'Tertiary Butylhydroquinone', '叔丁基对苯二酚'],
     code: 'E319',
     category: '抗氧化剂',
     safetyLevel: '争议',
@@ -937,7 +937,7 @@ const additiveData = [
   {
     id: 'e320',
     name: '丁基羟基茴香醚',
-    aliases: ['E320', 'BHA', 'Butylated Hydroxyanisole'],
+    aliases: ['E320', 'BHA', 'Butylated Hydroxyanisole', '丁基大茴香醚'],
     code: 'E320',
     category: '抗氧化剂',
     safetyLevel: '争议',
@@ -948,7 +948,7 @@ const additiveData = [
     commonFoods: '食用油、黄油、谷物制品、零食',
     summary: '常用合成抗氧化剂，IARC列为2B类致癌物',
     detail: 'BHA通过捕获自由基中断油脂氧化链式反应，对动物油脂抗氧化效果优于植物油。IARC基于大鼠前胃肿瘤证据将其列为2B类可能致癌物，但人类无前胃解剖结构，且该效应存在剂量阈值，JECFA维持ADI但降低了数值。',
-    warning: '建议减少含BHA的加工食品摄入',
+    warning: 'IARC列为2B类可能致癌物，建议减少含BHA的加工食品摄入',
     source: 'GB2760-2024 / JECFA第44次评估报告 / IARC评估'
   },
   {
@@ -965,13 +965,13 @@ const additiveData = [
     commonFoods: '食用油、谷物制品、口香糖、零食',
     summary: '常用合成抗氧化剂，安全性争议持续',
     detail: 'BHT通过提供氢原子淬灭过氧自由基发挥抗氧化作用，与BHA常复配使用产生协同效应。争议来自动物实验中高剂量BHT可引起肝脏肿大和酶诱导效应，日本和罗马尼亚曾限制其在食品中使用，JECFA将ADI设定为较低的0-0.3mg/kg体重。',
-    warning: '建议减少含BHT的加工食品摄入',
+    warning: '高剂量可致肝脏肿大，日本曾限制使用，建议减少含BHT的加工食品摄入',
     source: 'GB2760-2024 / JECFA第44次评估报告'
   },
   {
     id: 'e310',
     name: '没食子酸丙酯',
-    aliases: ['E310', 'PG', 'Propyl Gallate'],
+    aliases: ['E310', 'PG', 'Propyl Gallate', '棓酸丙酯'],
     code: 'E310',
     category: '抗氧化剂',
     safetyLevel: '争议',
@@ -982,13 +982,13 @@ const additiveData = [
     commonFoods: '食用油、坚果、谷物制品',
     summary: '合成抗氧化剂，与BHA/BHT复配使用',
     detail: '没食子酸丙酯通过清除自由基和螯合金属离子双重机制抗氧化，与BHA和BHT复配时具有显著协同效应。争议在于其可能具有弱雌激素活性和致敏性，部分人群接触后可出现接触性皮炎，JECFA设定了中等ADI值。',
-    warning: '敏感体质者注意可能的过敏反应',
+    warning: '可能具有弱雌激素活性和致敏性，敏感体质者可能出现皮肤过敏反应',
     source: 'GB2760-2024 / JECFA第26次评估报告'
   },
   {
     id: 'e306',
     name: '维生素E',
-    aliases: ['E306', '生育酚', 'Tocopherol'],
+    aliases: ['E306', '生育酚', 'Tocopherol', 'VE'],
     code: 'E306',
     category: '抗氧化剂',
     safetyLevel: '安全',
@@ -1005,7 +1005,7 @@ const additiveData = [
   {
     id: 'e300',
     name: '维生素C',
-    aliases: ['E300', '抗坏血酸', 'Ascorbic Acid'],
+    aliases: ['E300', '抗坏血酸', 'Ascorbic Acid', 'VC', 'L-抗坏血酸'],
     code: 'E300',
     category: '抗氧化剂',
     safetyLevel: '安全',
@@ -1039,7 +1039,7 @@ const additiveData = [
   {
     id: 'tea-polyphenol',
     name: '茶多酚',
-    aliases: ['Tea Polyphenols', '绿茶提取物'],
+    aliases: ['Tea Polyphenols', '绿茶提取物', '维多酚'],
     code: '—',
     category: '抗氧化剂',
     safetyLevel: '安全',
@@ -1059,7 +1059,7 @@ const additiveData = [
   {
     id: 'e330',
     name: '柠檬酸',
-    aliases: ['E330', 'Citric Acid'],
+    aliases: ['E330', 'Citric Acid', '枸橼酸'],
     code: 'E330',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1076,7 +1076,7 @@ const additiveData = [
   {
     id: 'e331',
     name: '柠檬酸钠',
-    aliases: ['E331', 'Sodium Citrate'],
+    aliases: ['E331', 'Sodium Citrate', '枸橼酸钠'],
     code: 'E331',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1093,7 +1093,7 @@ const additiveData = [
   {
     id: 'e500',
     name: '碳酸钠',
-    aliases: ['E500', '纯碱', 'Sodium Carbonate'],
+    aliases: ['E500', '纯碱', 'Sodium Carbonate', '苏打', '碱面'],
     code: 'E500',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1110,7 +1110,7 @@ const additiveData = [
   {
     id: 'e500ii',
     name: '碳酸氢钠',
-    aliases: ['E500ii', '小苏打', 'Sodium Bicarbonate'],
+    aliases: ['E500ii', '小苏打', 'Sodium Bicarbonate', '苏打粉', '重碳酸钠'],
     code: 'E500ii',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1127,7 +1127,7 @@ const additiveData = [
   {
     id: 'e270',
     name: '乳酸',
-    aliases: ['E270', 'Lactic Acid'],
+    aliases: ['E270', 'Lactic Acid', '2-羟基丙酸'],
     code: 'E270',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1144,7 +1144,7 @@ const additiveData = [
   {
     id: 'e296',
     name: '苹果酸',
-    aliases: ['E296', 'Malic Acid'],
+    aliases: ['E296', 'Malic Acid', '羟基丁二酸', '羟基琥珀酸'],
     code: 'E296',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1161,7 +1161,7 @@ const additiveData = [
   {
     id: 'e338',
     name: '磷酸',
-    aliases: ['E338', 'Phosphoric Acid'],
+    aliases: ['E338', 'Phosphoric Acid', '正磷酸'],
     code: 'E338',
     category: '酸度调节剂',
     safetyLevel: '争议',
@@ -1178,7 +1178,7 @@ const additiveData = [
   {
     id: 'e297',
     name: '富马酸',
-    aliases: ['E297', 'Fumaric Acid', '延胡索酸'],
+    aliases: ['E297', 'Fumaric Acid', '延胡索酸', '反丁烯二酸'],
     code: 'E297',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1198,7 +1198,7 @@ const additiveData = [
   {
     id: 'e503',
     name: '碳酸氢铵',
-    aliases: ['E503', '臭粉', 'Ammonium Bicarbonate'],
+    aliases: ['E503', '臭粉', 'Ammonium Bicarbonate', '氨粉'],
     code: 'E503',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -1215,7 +1215,7 @@ const additiveData = [
   {
     id: 'e522',
     name: '硫酸铝钾',
-    aliases: ['E522', '明矾', 'Potassium Aluminium Sulfate'],
+    aliases: ['E522', '明矾', 'Potassium Aluminium Sulfate', '白矾'],
     code: 'E522',
     category: '膨松剂',
     safetyLevel: '争议',
@@ -1232,7 +1232,7 @@ const additiveData = [
   {
     id: 'e336',
     name: '酒石酸氢钾',
-    aliases: ['E336', 'Cream of Tartar', '塔塔粉'],
+    aliases: ['E336', 'Cream of Tartar', '塔塔粉', '酒石英'],
     code: 'E336',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -1249,7 +1249,7 @@ const additiveData = [
   {
     id: 'baking-powder',
     name: '泡打粉',
-    aliases: ['Baking Powder', '发粉'],
+    aliases: ['Baking Powder', '发粉', '发酵粉'],
     code: '—',
     category: '膨松剂',
     safetyLevel: '争议',
@@ -1286,7 +1286,7 @@ const additiveData = [
   {
     id: 'e621',
     name: '味精',
-    aliases: ['E621', '谷氨酸钠', 'Monosodium Glutamate'],
+    aliases: ['E621', '谷氨酸钠', 'Monosodium Glutamate', 'MSG', '味素'],
     code: 'E621',
     category: '其他',
     safetyLevel: '争议',
@@ -1297,13 +1297,13 @@ const additiveData = [
     commonFoods: '调味品、方便面、零食、餐饮菜肴',
     summary: '最常用的鲜味剂，"中餐馆综合征"争议未消',
     detail: '味精通过激活舌上鲜味受体（T1R1/T1R3）产生鲜味，鲜味强度约为食盐的10倍。"中餐馆综合征"指部分人食用后出现头痛、面部麻木等症状，但双盲对照研究未能证实味精与这些症状的因果关系，JECFA未设定ADI值。',
-    warning: '对味精敏感者可选择不添加',
+    warning: '"味精过敏综合征"争议尚存，虽双盲研究未证实因果关系，但敏感者空腹大量摄入后可能出现头痛等症状',
     source: 'GB2760-2024 / JECFA第14次评估报告 / FASEB报告1995'
   },
   {
     id: 'e635',
     name: "5'-呈味核苷酸二钠",
-    aliases: ['E635', 'I+G', 'Disodium 5-Ribonucleotides'],
+    aliases: ['E635', 'I+G', 'Disodium 5-Ribonucleotides', '呈味核苷酸'],
     code: 'E635',
     category: '其他',
     safetyLevel: '安全',
@@ -1320,7 +1320,7 @@ const additiveData = [
   {
     id: 'e631',
     name: '肌苷酸二钠',
-    aliases: ['E631', 'IMP', 'Disodium Inosinate'],
+    aliases: ['E631', 'IMP', 'Disodium Inosinate', '肌苷酸钠'],
     code: 'E631',
     category: '其他',
     safetyLevel: '安全',
@@ -1354,7 +1354,7 @@ const additiveData = [
   {
     id: 'e508',
     name: '氯化钾',
-    aliases: ['E508', 'Potassium Chloride'],
+    aliases: ['E508', 'Potassium Chloride', '钾盐'],
     code: 'E508',
     category: '其他',
     safetyLevel: '安全',
@@ -1371,7 +1371,7 @@ const additiveData = [
   {
     id: 'hydrogenated-oil',
     name: '氢化植物油',
-    aliases: ['Hydrogenated Vegetable Oil', '植物奶油', '人造奶油'],
+    aliases: ['Hydrogenated Vegetable Oil', '植物奶油', '人造奶油', '植脂末', '代可可脂'],
     code: '—',
     category: '其他',
     safetyLevel: '慎用',
@@ -1388,7 +1388,7 @@ const additiveData = [
   {
     id: 'hfcs',
     name: '果葡糖浆',
-    aliases: ['High Fructose Corn Syrup', 'HFCS', '高果糖浆'],
+    aliases: ['High Fructose Corn Syrup', 'HFCS', '高果糖浆', '异构糖浆'],
     code: '—',
     category: '其他',
     safetyLevel: '争议',
@@ -1405,7 +1405,7 @@ const additiveData = [
   {
     id: 'maltodextrin',
     name: '麦芽糊精',
-    aliases: ['Maltodextrin', '麦芽糊精'],
+    aliases: ['Maltodextrin', '麦芽糊精', '水溶性糊精'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -1422,7 +1422,7 @@ const additiveData = [
   {
     id: 'e460i',
     name: '微晶纤维素',
-    aliases: ['E460i', 'MCC', 'Microcrystalline Cellulose'],
+    aliases: ['E460i', 'MCC', 'Microcrystalline Cellulose', '纤维素粉'],
     code: 'E460i',
     category: '其他',
     safetyLevel: '安全',
@@ -1439,7 +1439,7 @@ const additiveData = [
   {
     id: 'e1200',
     name: '聚葡萄糖',
-    aliases: ['E1200', 'Polydextrose'],
+    aliases: ['E1200', 'Polydextrose', '聚糊精'],
     code: 'E1200',
     category: '其他',
     safetyLevel: '安全',
@@ -1459,7 +1459,7 @@ const additiveData = [
   {
     id: 'e281',
     name: '丙酸钠',
-    aliases: ['E281', 'Sodium Propionate'],
+    aliases: ['E281', 'Sodium Propionate', '丙酸钠盐'],
     code: 'E281',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -1476,7 +1476,7 @@ const additiveData = [
   {
     id: 'e262ii',
     name: '双乙酸钠',
-    aliases: ['E262ii', 'SDA', 'Sodium Diacetate'],
+    aliases: ['E262ii', 'SDA', 'Sodium Diacetate', '双乙酸酸钠'],
     code: 'E262ii',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -1510,7 +1510,7 @@ const additiveData = [
   {
     id: 'e956',
     name: '阿力甜',
-    aliases: ['E956', 'Alitame'],
+    aliases: ['E956', 'Alitame', '阿力他姆'],
     code: 'E956',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -1527,7 +1527,7 @@ const additiveData = [
   {
     id: 'e961',
     name: '纽甜',
-    aliases: ['E961', 'Neotame'],
+    aliases: ['E961', 'Neotame', '纽甜素'],
     code: 'E961',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -1544,7 +1544,7 @@ const additiveData = [
   {
     id: 'e120',
     name: '紫胶红',
-    aliases: ['E120', 'Lac Dye', '虫胶红'],
+    aliases: ['E120', 'Lac Dye', '虫胶红', '紫胶色素'],
     code: 'E120',
     category: '色素',
     safetyLevel: '安全',
@@ -1561,7 +1561,7 @@ const additiveData = [
   {
     id: 'e161b',
     name: '叶黄素',
-    aliases: ['E161b', 'Lutein'],
+    aliases: ['E161b', 'Lutein', '植物黄体素'],
     code: 'E161b',
     category: '色素',
     safetyLevel: '安全',
@@ -1578,7 +1578,7 @@ const additiveData = [
   {
     id: 'radish-red',
     name: '萝卜红',
-    aliases: ['Radish Red', '红萝卜色素'],
+    aliases: ['Radish Red', '红萝卜色素', '萝卜色素'],
     code: '—',
     category: '色素',
     safetyLevel: '安全',
@@ -1595,7 +1595,7 @@ const additiveData = [
   {
     id: 'e464',
     name: '羟丙基甲基纤维素',
-    aliases: ['E464', 'HPMC', 'Hypromellose'],
+    aliases: ['E464', 'HPMC', 'Hypromellose', '羟丙甲纤维素'],
     code: 'E464',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -1612,7 +1612,7 @@ const additiveData = [
   {
     id: 'e1400',
     name: '变性淀粉',
-    aliases: ['E1400', 'Modified Starch', '改性淀粉'],
+    aliases: ['E1400', 'Modified Starch', '改性淀粉', '修饰淀粉'],
     code: 'E1400',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -1646,7 +1646,7 @@ const additiveData = [
   {
     id: 'rosemary-extract',
     name: '迷迭香提取物',
-    aliases: ['Rosemary Extract', '迷迭香酸', 'E915'],
+    aliases: ['Rosemary Extract', '迷迭香酸', 'E915', '迷迭香精'],
     code: '—',
     category: '抗氧化剂',
     safetyLevel: '安全',
@@ -1663,7 +1663,7 @@ const additiveData = [
   {
     id: 'e334',
     name: '酒石酸',
-    aliases: ['E334', 'Tartaric Acid'],
+    aliases: ['E334', 'Tartaric Acid', '葡萄酸', '二羟基琥珀酸'],
     code: 'E334',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1680,7 +1680,7 @@ const additiveData = [
   {
     id: 'e260',
     name: '乙酸',
-    aliases: ['E260', 'Acetic Acid', '冰醋酸'],
+    aliases: ['E260', 'Acetic Acid', '冰醋酸', '醋酸'],
     code: 'E260',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -1697,7 +1697,7 @@ const additiveData = [
   {
     id: 'e170',
     name: '碳酸钙',
-    aliases: ['E170', 'Calcium Carbonate'],
+    aliases: ['E170', 'Calcium Carbonate', '石灰石粉'],
     code: 'E170',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -1714,7 +1714,7 @@ const additiveData = [
   {
     id: 'e536',
     name: '亚铁氰化钾',
-    aliases: ['E536', 'Potassium Ferrocyanide', '黄血盐钾'],
+    aliases: ['E536', 'Potassium Ferrocyanide', '黄血盐钾', '黄血盐'],
     code: 'E536',
     category: '其他',
     safetyLevel: '争议',
@@ -1748,7 +1748,7 @@ const additiveData = [
   {
     id: 'e364',
     name: '琥珀酸二钠',
-    aliases: ['E364', 'Disodium Succinate', '丁二酸钠'],
+    aliases: ['E364', 'Disodium Succinate', '丁二酸钠', '干贝素'],
     code: 'E364',
     category: '其他',
     safetyLevel: '安全',
@@ -1765,7 +1765,7 @@ const additiveData = [
   {
     id: 'e1520',
     name: '丙二醇',
-    aliases: ['E1520', 'Propylene Glycol', 'PG'],
+    aliases: ['E1520', 'Propylene Glycol', 'PG', '1,2-丙二醇'],
     code: 'E1520',
     category: '其他',
     safetyLevel: '争议',
@@ -1776,7 +1776,7 @@ const additiveData = [
     commonFoods: '糕点、月饼、调味品、饮料',
     summary: '保湿剂和溶剂，猫科动物毒性引发关注',
     detail: '丙二醇具有优良的保湿和溶解性能，在月饼和糕点中防止水分流失保持柔软口感。争议在于猫对丙二醇极为敏感（可引起海因茨小体贫血），虽然人类代谢能力远强于猫，但大量摄入的安全性仍受关注，欧盟限制其在饮料中的使用量。',
-    warning: '避免长期大量摄入含丙二醇的食品',
+    warning: '大量摄入安全性受关注，欧盟限制在饮料中使用量，避免长期大量摄入',
     source: 'GB2760-2024 / JECFA第17次评估报告'
   },
   {
@@ -1799,7 +1799,7 @@ const additiveData = [
   {
     id: 'sec-butylamine',
     name: '仲丁胺',
-    aliases: ['Sec-Butylamine', '2-氨基丁烷'],
+    aliases: ['Sec-Butylamine', '2-氨基丁烷', '另丁胺'],
     code: '—',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -1816,7 +1816,7 @@ const additiveData = [
   {
     id: 'cinnamaldehyde',
     name: '桂醛',
-    aliases: ['Cinnamaldehyde', '肉桂醛'],
+    aliases: ['Cinnamaldehyde', '肉桂醛', '桂皮醛'],
     code: '—',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -1833,7 +1833,7 @@ const additiveData = [
   {
     id: 'e233',
     name: '噻苯咪唑',
-    aliases: ['E233', 'Thiabendazole', 'TBZ'],
+    aliases: ['E233', 'Thiabendazole', 'TBZ', '噻菌灵'],
     code: 'E233',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -1850,7 +1850,7 @@ const additiveData = [
   {
     id: '2-naphthol',
     name: '乙萘酚',
-    aliases: ['2-Naphthol', 'β-萘酚'],
+    aliases: ['2-Naphthol', 'β-萘酚', '2-萘酚'],
     code: '—',
     category: '防腐剂',
     safetyLevel: '慎用',
@@ -1935,7 +1935,7 @@ const additiveData = [
   {
     id: 'ddab',
     name: '十二烷基二甲基溴化胺',
-    aliases: ['DDAB', '新洁尔灭类', '苯扎溴铵类'],
+    aliases: ['DDAB', '新洁尔灭类', '苯扎溴铵类', '苯扎溴铵'],
     code: '—',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -2003,7 +2003,7 @@ const additiveData = [
   {
     id: 'e265',
     name: '脱氢乙酸',
-    aliases: ['E265', 'Dehydroacetic Acid', 'DHA'],
+    aliases: ['E265', 'Dehydroacetic Acid', 'DHA', '脱氢醋酸'],
     code: 'E265',
     category: '防腐剂',
     safetyLevel: '安全',
@@ -2037,7 +2037,7 @@ const additiveData = [
   {
     id: 'e966',
     name: '乳糖醇',
-    aliases: ['E966', 'Lactitol', '乳糖醇'],
+    aliases: ['E966', 'Lactitol', '乳糖醇', '乳糖醇液'],
     code: 'E966',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -2071,7 +2071,7 @@ const additiveData = [
   {
     id: 'e953',
     name: '异麦芽酮糖',
-    aliases: ['E953', 'Palatinose', '巴拉丁糖'],
+    aliases: ['E953', 'Palatinose', '巴拉丁糖', '帕拉金糖'],
     code: 'E953',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -2105,7 +2105,7 @@ const additiveData = [
   {
     id: 'e969',
     name: '爱德万甜',
-    aliases: ['E969', 'Advantame'],
+    aliases: ['E969', 'Advantame', '艾德万甜'],
     code: 'E969',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -2139,7 +2139,7 @@ const additiveData = [
   {
     id: 'e161i',
     name: '柑橘黄',
-    aliases: ['E161i', 'Citranaxanthin'],
+    aliases: ['E161i', 'Citranaxanthin', '柑橘黄色素'],
     code: 'E161i',
     category: '色素',
     safetyLevel: '安全',
@@ -2156,7 +2156,7 @@ const additiveData = [
   {
     id: 'sorghum-red',
     name: '高粱红',
-    aliases: ['Sorghum Red', '高粱色素'],
+    aliases: ['Sorghum Red', '高粱色素', '高粱红色素'],
     code: '—',
     category: '色素',
     safetyLevel: '安全',
@@ -2173,7 +2173,7 @@ const additiveData = [
   {
     id: 'peanut-skin-red',
     name: '花生衣红',
-    aliases: ['Peanut Skin Red', '花生红衣色素'],
+    aliases: ['Peanut Skin Red', '花生红衣色素', '花生衣色素'],
     code: '—',
     category: '色素',
     safetyLevel: '安全',
@@ -2190,7 +2190,7 @@ const additiveData = [
   {
     id: 'e163',
     name: '葡萄皮红',
-    aliases: ['E163', 'Grape Skin Extract', '葡萄皮提取物'],
+    aliases: ['E163', 'Grape Skin Extract', '葡萄皮提取物', '葡萄皮色素'],
     code: 'E163',
     category: '色素',
     safetyLevel: '安全',
@@ -2241,7 +2241,7 @@ const additiveData = [
   {
     id: 'e153',
     name: '植物炭黑',
-    aliases: ['E153', 'Vegetable Carbon', '炭黑'],
+    aliases: ['E153', 'Vegetable Carbon', '炭黑', '植物炭'],
     code: 'E153',
     category: '色素',
     safetyLevel: '安全',
@@ -2258,7 +2258,7 @@ const additiveData = [
   {
     id: 'e172ii',
     name: '氧化铁黑',
-    aliases: ['E172ii', 'Iron Oxide Black', '四氧化三铁'],
+    aliases: ['E172ii', 'Iron Oxide Black', '四氧化三铁', '铁黑'],
     code: 'E172ii',
     category: '色素',
     safetyLevel: '安全',
@@ -2275,7 +2275,7 @@ const additiveData = [
   {
     id: 'e172i',
     name: '氧化铁红',
-    aliases: ['E172i', 'Iron Oxide Red', '三氧化二铁'],
+    aliases: ['E172i', 'Iron Oxide Red', '三氧化二铁', '铁红'],
     code: 'E172i',
     category: '色素',
     safetyLevel: '安全',
@@ -2343,7 +2343,7 @@ const additiveData = [
   {
     id: 'cocoa-husk-color',
     name: '可可壳色',
-    aliases: ['Cocoa Husk Pigment', '可可壳色素'],
+    aliases: ['Cocoa Husk Pigment', '可可壳色素', '可可棕'],
     code: '—',
     category: '色素',
     safetyLevel: '安全',
@@ -2479,7 +2479,7 @@ const additiveData = [
   {
     id: 'e1204',
     name: '普鲁兰多糖',
-    aliases: ['E1204', 'Pullulan', '茁霉多糖'],
+    aliases: ['E1204', 'Pullulan', '茁霉多糖', '普鲁兰糖'],
     code: 'E1204',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -2513,7 +2513,7 @@ const additiveData = [
   {
     id: 'e413',
     name: '黄蓍胶',
-    aliases: ['E413', 'Tragacanth', '黄芪胶'],
+    aliases: ['E413', 'Tragacanth', '黄芪胶', '托辣克胶'],
     code: 'E413',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -2530,7 +2530,7 @@ const additiveData = [
   {
     id: 'e414',
     name: '阿拉伯胶',
-    aliases: ['E414', 'Gum Arabic', 'Acacia Gum'],
+    aliases: ['E414', 'Gum Arabic', 'Acacia Gum', '金合欢胶'],
     code: 'E414',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -2700,7 +2700,7 @@ const additiveData = [
   {
     id: 'e470a-k',
     name: '硬脂酸钾',
-    aliases: ['E470a', 'Potassium Stearate'],
+    aliases: ['E470a', 'Potassium Stearate', '钾皂'],
     code: 'E470a',
     category: '乳化剂',
     safetyLevel: '安全',
@@ -2785,7 +2785,7 @@ const additiveData = [
   {
     id: 'xylitan-monostearate',
     name: '木糖醇酐单硬脂酸酯',
-    aliases: ['Xylitan Monostearate', 'LS-60'],
+    aliases: ['Xylitan Monostearate', 'LS-60', 'LS-60M'],
     code: '—',
     category: '乳化剂',
     safetyLevel: '安全',
@@ -2870,7 +2870,7 @@ const additiveData = [
   {
     id: 'e304',
     name: '抗坏血酸棕榈酸酯',
-    aliases: ['E304', 'Ascorbyl Palmitate', 'AP'],
+    aliases: ['E304', 'Ascorbyl Palmitate', 'AP', '维生素C棕榈酸酯'],
     code: 'E304',
     category: '抗氧化剂',
     safetyLevel: '安全',
@@ -2972,7 +2972,7 @@ const additiveData = [
   {
     id: 'e355',
     name: '己二酸',
-    aliases: ['E355', 'Adipic Acid', '肥酸'],
+    aliases: ['E355', 'Adipic Acid', '肥酸', '己烷二酸'],
     code: 'E355',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3006,7 +3006,7 @@ const additiveData = [
   {
     id: 'e575',
     name: '葡萄糖酸-δ-内酯',
-    aliases: ['E575', 'GDL', 'Glucono Delta-Lactone', '葡萄糖内酯'],
+    aliases: ['E575', 'GDL', 'Glucono Delta-Lactone', '葡萄糖内酯', '内酯'],
     code: 'E575',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3023,7 +3023,7 @@ const additiveData = [
   {
     id: 'e501i',
     name: '碳酸钾',
-    aliases: ['E501i', 'Potassium Carbonate', '钾碱'],
+    aliases: ['E501i', 'Potassium Carbonate', '钾碱', '碱灰'],
     code: 'E501i',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3040,7 +3040,7 @@ const additiveData = [
   {
     id: 'e501ii',
     name: '碳酸氢钾',
-    aliases: ['E501ii', 'Potassium Bicarbonate'],
+    aliases: ['E501ii', 'Potassium Bicarbonate', '酸性碳酸钾'],
     code: 'E501ii',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3074,7 +3074,7 @@ const additiveData = [
   {
     id: 'e524',
     name: '氢氧化钠',
-    aliases: ['E524', 'Sodium Hydroxide', '烧碱', '火碱'],
+    aliases: ['E524', 'Sodium Hydroxide', '烧碱', '火碱', '苛性钠'],
     code: 'E524',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3091,7 +3091,7 @@ const additiveData = [
   {
     id: 'e507',
     name: '盐酸',
-    aliases: ['E507', 'Hydrochloric Acid'],
+    aliases: ['E507', 'Hydrochloric Acid', '氢氯酸'],
     code: 'E507',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3108,7 +3108,7 @@ const additiveData = [
   {
     id: 'e516',
     name: '硫酸钙',
-    aliases: ['E516', 'Calcium Sulfate', '石膏'],
+    aliases: ['E516', 'Calcium Sulfate', '石膏', '生石膏'],
     code: 'E516',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -3176,7 +3176,7 @@ const additiveData = [
   {
     id: 'e342ii',
     name: '磷酸氢二铵',
-    aliases: ['E342ii', 'Diammonium Hydrogen Phosphate', 'DAP'],
+    aliases: ['E342ii', 'Diammonium Hydrogen Phosphate', 'DAP', '磷酸二铵'],
     code: 'E342ii',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -3193,7 +3193,7 @@ const additiveData = [
   {
     id: 'e341i',
     name: '磷酸二氢钙',
-    aliases: ['E341i', 'Monocalcium Phosphate', 'MCP'],
+    aliases: ['E341i', 'Monocalcium Phosphate', 'MCP', '磷酸一钙', '磷酸钙'],
     code: 'E341i',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -3210,7 +3210,7 @@ const additiveData = [
   {
     id: 'e341ii',
     name: '磷酸氢钙',
-    aliases: ['E341ii', 'Dicalcium Phosphate', 'DCP'],
+    aliases: ['E341ii', 'Dicalcium Phosphate', 'DCP', '磷酸二钙'],
     code: 'E341ii',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -3227,7 +3227,7 @@ const additiveData = [
   {
     id: 'e504ii',
     name: '轻质碳酸镁',
-    aliases: ['E504ii', 'Light Magnesium Carbonate'],
+    aliases: ['E504ii', 'Light Magnesium Carbonate', '碱式碳酸镁'],
     code: 'E504ii',
     category: '膨松剂',
     safetyLevel: '安全',
@@ -3278,7 +3278,7 @@ const additiveData = [
   {
     id: 'e339iii',
     name: '磷酸三钠',
-    aliases: ['E339iii', 'Trisodium Phosphate', 'TSP'],
+    aliases: ['E339iii', 'Trisodium Phosphate', 'TSP', '磷酸钠'],
     code: 'E339iii',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3295,7 +3295,7 @@ const additiveData = [
   {
     id: 'e452i',
     name: '六偏磷酸钠',
-    aliases: ['E452i', 'Sodium Hexametaphosphate', 'SHMP'],
+    aliases: ['E452i', 'Sodium Hexametaphosphate', 'SHMP', '格来汉氏盐'],
     code: 'E452i',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3312,7 +3312,7 @@ const additiveData = [
   {
     id: 'e451i',
     name: '三聚磷酸钠',
-    aliases: ['E451i', 'Sodium Tripolyphosphate', 'STPP'],
+    aliases: ['E451i', 'Sodium Tripolyphosphate', 'STPP', '三磷酸钠'],
     code: 'E451i',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3329,7 +3329,7 @@ const additiveData = [
   {
     id: 'e450iii',
     name: '焦磷酸钠',
-    aliases: ['E450iii', 'Disodium Pyrophosphate', 'SAPP'],
+    aliases: ['E450iii', 'Disodium Pyrophosphate', 'SAPP', '二磷酸钠'],
     code: 'E450iii',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3346,7 +3346,7 @@ const additiveData = [
   {
     id: 'e339i',
     name: '磷酸二氢钠',
-    aliases: ['E339i', 'Sodium Dihydrogen Phosphate'],
+    aliases: ['E339i', 'Sodium Dihydrogen Phosphate', '磷酸一钠'],
     code: 'E339i',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3363,7 +3363,7 @@ const additiveData = [
   {
     id: 'e339ii',
     name: '磷酸氢二钠',
-    aliases: ['E339ii', 'Disodium Hydrogen Phosphate'],
+    aliases: ['E339ii', 'Disodium Hydrogen Phosphate', '磷酸二钠'],
     code: 'E339ii',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3380,7 +3380,7 @@ const additiveData = [
   {
     id: 'e325',
     name: '乳酸钠',
-    aliases: ['E325', 'Sodium Lactate'],
+    aliases: ['E325', 'Sodium Lactate', '乳酸钠盐'],
     code: 'E325',
     category: '水分保持剂',
     safetyLevel: '安全',
@@ -3397,7 +3397,7 @@ const additiveData = [
   {
     id: 'e477',
     name: '丙二醇酯',
-    aliases: ['E477', 'Propylene Glycol Esters', 'PGMS'],
+    aliases: ['E477', 'Propylene Glycol Esters', 'PGMS', '丙二醇脂肪酸酯', 'PG酯'],
     code: 'E477',
     category: '稳定剂',
     safetyLevel: '安全',
@@ -3414,7 +3414,7 @@ const additiveData = [
   {
     id: 'e386',
     name: '乙二胺四乙酸二钠',
-    aliases: ['E386', 'EDTA-2Na', 'Disodium EDTA'],
+    aliases: ['E386', 'EDTA-2Na', 'Disodium EDTA', 'EDTA二钠'],
     code: 'E386',
     category: '稳定剂',
     safetyLevel: '争议',
@@ -3448,7 +3448,7 @@ const additiveData = [
   {
     id: 'e511',
     name: '氯化镁',
-    aliases: ['E511', 'Magnesium Chloride', '卤水', '盐卤'],
+    aliases: ['E511', 'Magnesium Chloride', '卤水', '盐卤', '苦卤'],
     code: 'E511',
     category: '稳定剂',
     safetyLevel: '安全',
@@ -3465,7 +3465,7 @@ const additiveData = [
   {
     id: 'e928',
     name: '过氧化苯甲酰',
-    aliases: ['E928', 'Benzoyl Peroxide', 'BPO', '面粉增白剂'],
+    aliases: ['E928', 'Benzoyl Peroxide', 'BPO', '面粉增白剂', '苯甲酰过氧'],
     code: 'E928',
     category: '面粉处理剂',
     safetyLevel: '慎用',
@@ -3482,7 +3482,7 @@ const additiveData = [
   {
     id: 'e930',
     name: '过氧化钙',
-    aliases: ['E930', 'Calcium Peroxide'],
+    aliases: ['E930', 'Calcium Peroxide', '二氧化钙'],
     code: 'E930',
     category: '面粉处理剂',
     safetyLevel: '争议',
@@ -3516,7 +3516,7 @@ const additiveData = [
   {
     id: 'e927a',
     name: '偶氮甲酰胺',
-    aliases: ['E927a', 'Azodicarbonamide', 'ADA'],
+    aliases: ['E927a', 'Azodicarbonamide', 'ADA', '偶氮二甲酰胺'],
     code: 'E927a',
     category: '面粉处理剂',
     safetyLevel: '争议',
@@ -3533,7 +3533,7 @@ const additiveData = [
   {
     id: 'e504i',
     name: '碳酸镁',
-    aliases: ['E504i', 'Magnesium Carbonate'],
+    aliases: ['E504i', 'Magnesium Carbonate', '碱式碳酸镁'],
     code: 'E504i',
     category: '面粉处理剂',
     safetyLevel: '安全',
@@ -3550,7 +3550,7 @@ const additiveData = [
   {
     id: 'e905a',
     name: '白油',
-    aliases: ['E905a', 'White Mineral Oil', '液体石蜡', '矿物油'],
+    aliases: ['E905a', 'White Mineral Oil', '液体石蜡', '矿物油', '石蜡油'],
     code: 'E905a',
     category: '被膜剂',
     safetyLevel: '安全',
@@ -3601,7 +3601,7 @@ const additiveData = [
   {
     id: 'e903',
     name: '巴西棕榈蜡',
-    aliases: ['E903', 'Carnauba Wax'],
+    aliases: ['E903', 'Carnauba Wax', '卡那巴蜡'],
     code: 'E903',
     category: '被膜剂',
     safetyLevel: '安全',
@@ -3618,7 +3618,7 @@ const additiveData = [
   {
     id: 'e900',
     name: '聚二甲基硅氧烷',
-    aliases: ['E900', 'Polydimethylsiloxane', 'PDMS', '二甲基硅油'],
+    aliases: ['E900', 'Polydimethylsiloxane', 'PDMS', '二甲基硅油', '硅油'],
     code: 'E900',
     category: '其他',
     safetyLevel: '安全',
@@ -3635,7 +3635,7 @@ const additiveData = [
   {
     id: 'e553a',
     name: '硅酸镁',
-    aliases: ['E553a', 'Magnesium Silicate', '滑石粉类'],
+    aliases: ['E553a', 'Magnesium Silicate', '滑石粉类', '三硅酸镁'],
     code: 'E553a',
     category: '其他',
     safetyLevel: '安全',
@@ -3652,7 +3652,7 @@ const additiveData = [
   {
     id: 'e553b',
     name: '滑石粉',
-    aliases: ['E553b', 'Talc'],
+    aliases: ['E553b', 'Talc', '含水硅酸镁'],
     code: 'E553b',
     category: '其他',
     safetyLevel: '安全',
@@ -3669,7 +3669,7 @@ const additiveData = [
   {
     id: 'e905',
     name: '石蜡',
-    aliases: ['E905', 'Paraffin Wax', '固体石蜡'],
+    aliases: ['E905', 'Paraffin Wax', '固体石蜡', '硬石蜡'],
     code: 'E905',
     category: '其他',
     safetyLevel: '安全',
@@ -3703,7 +3703,7 @@ const additiveData = [
   {
     id: 'e470b-mg',
     name: '硬脂酸镁',
-    aliases: ['Magnesium Stearate'],
+    aliases: ['Magnesium Stearate', '十八酸镁'],
     code: 'E470b',
     category: '其他',
     safetyLevel: '安全',
@@ -3720,7 +3720,7 @@ const additiveData = [
   {
     id: 'e470b-ca',
     name: '硬脂酸钙',
-    aliases: ['Calcium Stearate'],
+    aliases: ['Calcium Stearate', '十八酸钙'],
     code: 'E470b',
     category: '其他',
     safetyLevel: '安全',
@@ -3754,7 +3754,7 @@ const additiveData = [
   {
     id: 'sodium-oleate',
     name: '油酸钠',
-    aliases: ['Sodium Oleate'],
+    aliases: ['Sodium Oleate', '油酸钠皂'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -3771,7 +3771,7 @@ const additiveData = [
   {
     id: 'palmitic-acid',
     name: '棕榈酸',
-    aliases: ['Palmitic Acid', '十六酸'],
+    aliases: ['Palmitic Acid', '十六酸', '软脂酸'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -3805,7 +3805,7 @@ const additiveData = [
   {
     id: 'behenic-acid',
     name: '山嵛酸',
-    aliases: ['Behenic Acid', '二十二酸'],
+    aliases: ['Behenic Acid', '二十二酸', '扁油酸'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -3839,7 +3839,7 @@ const additiveData = [
   {
     id: 'e901',
     name: '蜂蜡',
-    aliases: ['E901', 'Beeswax'],
+    aliases: ['E901', 'Beeswax', '蜜蜡', '黄蜡'],
     code: 'E901',
     category: '其他',
     safetyLevel: '安全',
@@ -3856,7 +3856,7 @@ const additiveData = [
   {
     id: 'e902',
     name: '小烛树蜡',
-    aliases: ['E902', 'Candelilla Wax'],
+    aliases: ['E902', 'Candelilla Wax', '坎德利拉蜡'],
     code: 'E902',
     category: '其他',
     safetyLevel: '安全',
@@ -3907,7 +3907,7 @@ const additiveData = [
   {
     id: 'e913',
     name: '羊毛脂',
-    aliases: ['E913', 'Lanolin'],
+    aliases: ['E913', 'Lanolin', '无水羊毛脂'],
     code: 'E913',
     category: '其他',
     safetyLevel: '安全',
@@ -3924,7 +3924,7 @@ const additiveData = [
   {
     id: 'cholic-acid',
     name: '胆酸',
-    aliases: ['Cholic Acid'],
+    aliases: ['Cholic Acid', '胆汁酸'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -3941,7 +3941,7 @@ const additiveData = [
   {
     id: 'deoxycholic-acid',
     name: '脱氧胆酸',
-    aliases: ['Deoxycholic Acid'],
+    aliases: ['Deoxycholic Acid', '去氧胆酸'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -3958,7 +3958,7 @@ const additiveData = [
   {
     id: 'taurine',
     name: '牛磺酸',
-    aliases: ['Taurine', '2-氨基乙磺酸'],
+    aliases: ['Taurine', '2-氨基乙磺酸', '牛胆酸'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -3992,7 +3992,7 @@ const additiveData = [
   {
     id: 'l-carnitine',
     name: '左旋肉碱',
-    aliases: ['L-Carnitine', '肉碱', '左卡尼汀'],
+    aliases: ['L-Carnitine', '肉碱', '左卡尼汀', 'L-肉碱'],
     code: '—',
     category: '其他',
     safetyLevel: '安全',
@@ -4145,7 +4145,7 @@ const additiveData = [
   {
     id: 'e218',
     name: '对羟基苯甲酸甲酯',
-    aliases: ['E218', 'Methyl Paraben', '尼泊金甲酯'],
+    aliases: ['E218', 'Methyl Paraben', '尼泊金甲酯', '羟苯甲酯'],
     code: 'E218',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -4162,7 +4162,7 @@ const additiveData = [
   {
     id: 'e216',
     name: '对羟基苯甲酸丙酯',
-    aliases: ['E216', 'Propyl Paraben', '尼泊金丙酯'],
+    aliases: ['E216', 'Propyl Paraben', '尼泊金丙酯', '羟苯丙酯'],
     code: 'E216',
     category: '防腐剂',
     safetyLevel: '争议',
@@ -4179,7 +4179,7 @@ const additiveData = [
   {
     id: 'monk-fruit-sweetener',
     name: '罗汉果甜苷',
-    aliases: ['Monk Fruit Sweetener', 'Mogrosides', '罗汉果提取物'],
+    aliases: ['Monk Fruit Sweetener', 'Mogrosides', '罗汉果提取物', '罗汉果甜'],
     code: '—',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -4196,7 +4196,7 @@ const additiveData = [
   {
     id: 'ammonium-glycyrrhizinate',
     name: '甘草酸铵',
-    aliases: ['Ammonium Glycyrrhizinate', '甘草酸铵盐'],
+    aliases: ['Ammonium Glycyrrhizinate', '甘草酸铵盐', '甘草甜素铵'],
     code: '—',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -4213,7 +4213,7 @@ const additiveData = [
   {
     id: 'monopotassium-glycyrrhizinate',
     name: '甘草酸一钾',
-    aliases: ['Monopotassium Glycyrrhizinate', '甘草酸钾'],
+    aliases: ['Monopotassium Glycyrrhizinate', '甘草酸钾', '甘草甜素钾'],
     code: '—',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -4247,7 +4247,7 @@ const additiveData = [
   {
     id: 'e420',
     name: '山梨糖醇',
-    aliases: ['E420', 'Sorbitol', '山梨醇'],
+    aliases: ['E420', 'Sorbitol', '山梨醇', '清凉茶醇'],
     code: 'E420',
     category: '甜味剂',
     safetyLevel: '安全',
@@ -4298,7 +4298,7 @@ const additiveData = [
   {
     id: 'e100',
     name: '姜黄素',
-    aliases: ['E100', 'Curcumin', '姜黄色素'],
+    aliases: ['E100', 'Curcumin', '姜黄色素', '郁金素'],
     code: 'E100',
     category: '色素',
     safetyLevel: '安全',
@@ -4332,7 +4332,7 @@ const additiveData = [
   {
     id: 'e160d',
     name: '番茄红素',
-    aliases: ['E160d', 'Lycopene'],
+    aliases: ['E160d', 'Lycopene', '番茄红'],
     code: 'E160d',
     category: '色素',
     safetyLevel: '安全',
@@ -4349,7 +4349,7 @@ const additiveData = [
   {
     id: 'e161g',
     name: '角黄素',
-    aliases: ['E161g', 'Canthaxanthin'],
+    aliases: ['E161g', 'Canthaxanthin', '斑蝥黄'],
     code: 'E161g',
     category: '色素',
     safetyLevel: '争议',
@@ -4587,7 +4587,7 @@ const additiveData = [
   {
     id: 'e427',
     name: '决明胶',
-    aliases: ['E427', 'Cassia Gum'],
+    aliases: ['E427', 'Cassia Gum', '决明子胶'],
     code: 'E427',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -4604,7 +4604,7 @@ const additiveData = [
   {
     id: 'e417',
     name: '刺云实胶',
-    aliases: ['E417', 'Tara Gum'],
+    aliases: ['E417', 'Tara Gum', '塔拉胶'],
     code: 'E417',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -4655,7 +4655,7 @@ const additiveData = [
   {
     id: 'e416',
     name: '刺梧桐胶',
-    aliases: ['E416', 'Karaya Gum'],
+    aliases: ['E416', 'Karaya Gum', '卡亚胶'],
     code: 'E416',
     category: '增稠剂',
     safetyLevel: '安全',
@@ -4927,7 +4927,7 @@ const additiveData = [
   {
     id: 'e327',
     name: '乳酸钙',
-    aliases: ['Calcium lactate'],
+    aliases: ['Calcium lactate', '乳酸钙盐'],
     code: 'E327',
     category: '酸度调节剂',
     safetyLevel: '安全',
@@ -4944,7 +4944,7 @@ const additiveData = [
   {
     id: 'e340',
     name: '磷酸氢二钾',
-    aliases: ['Dipotassium phosphate', '磷酸二钾'],
+    aliases: ['Dipotassium phosphate', '磷酸二钾', 'DKP'],
     code: 'E340',
     category: '水分保持剂',
     safetyLevel: '争议',
@@ -4961,7 +4961,7 @@ const additiveData = [
   {
     id: 'e340ii',
     name: '磷酸二氢钾',
-    aliases: ['Monopotassium phosphate', '磷酸一钾'],
+    aliases: ['Monopotassium phosphate', '磷酸一钾', 'MKP'],
     code: 'E340',
     category: '水分保持剂',
     safetyLevel: '争议',
@@ -4978,7 +4978,7 @@ const additiveData = [
   {
     id: 'e341',
     name: '磷酸钙',
-    aliases: ['Tricalcium phosphate', '磷酸三钙'],
+    aliases: ['Tricalcium phosphate', '磷酸三钙', 'TCP'],
     code: 'E341',
     category: '水分保持剂',
     safetyLevel: '争议',
@@ -4989,13 +4989,13 @@ const additiveData = [
     commonFoods: '肉制品、乳制品、固体饮料',
     summary: '不溶性磷酸钙盐，兼具水分保持和抗结功能',
     detail: '磷酸钙为白色无定形粉末，不溶于水但溶于酸。在食品中作为水分保持剂、抗结剂和钙强化剂使用。在固体饮料中作为流动助剂防止结块，在肉制品中改善保水性，在乳制品中补充钙质。与其他磷酸盐共享ADI值。',
-    warning: '过量摄入磷酸盐可能影响钙磷代谢',
+    warning: '过量摄入磷酸盐可能影响钙磷代谢和骨骼健康，肾病患者需注意',
     source: 'GB2760-2024 / JECFA第26次评估报告'
   },
   {
     id: 'e343',
     name: '磷酸氢镁',
-    aliases: ['Dimagnesium phosphate'],
+    aliases: ['Dimagnesium phosphate', '磷酸二镁'],
     code: 'E343',
     category: '水分保持剂',
     safetyLevel: '争议',
@@ -5006,7 +5006,7 @@ const additiveData = [
     commonFoods: '肉制品、乳制品',
     summary: '镁型磷酸盐，水分保持和营养强化兼备',
     detail: '磷酸氢镁在食品中作为水分保持剂和镁营养强化剂使用。在肉制品中提高保水性，在乳制品中补充镁元素。镁是人体必需矿物质，参与多种酶促反应，与其他磷酸盐共享ADI值。',
-    warning: '过量摄入磷酸盐可能影响矿物质代谢平衡',
+    warning: '过量摄入磷酸盐可能影响钙磷代谢和矿物质平衡，肾病患者需注意',
     source: 'GB2760-2024 / JECFA第26次评估报告'
   },
   {
@@ -5063,7 +5063,7 @@ const additiveData = [
   {
     id: 'ferric-cit',
     name: '柠檬酸铁',
-    aliases: ['Ferric citrate'],
+    aliases: ['Ferric citrate', '枸橼酸铁'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5080,7 +5080,7 @@ const additiveData = [
   {
     id: 'zinc-glu',
     name: '葡萄糖酸锌',
-    aliases: ['Zinc gluconate'],
+    aliases: ['Zinc gluconate', '锌葡萄糖酸'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5097,7 +5097,7 @@ const additiveData = [
   {
     id: 'ferrous-glu',
     name: '葡萄糖酸亚铁',
-    aliases: ['Ferrous gluconate'],
+    aliases: ['Ferrous gluconate', '亚铁葡萄糖酸'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5114,7 +5114,7 @@ const additiveData = [
   {
     id: 'ferrous-lac',
     name: '乳酸亚铁',
-    aliases: ['Ferrous lactate'],
+    aliases: ['Ferrous lactate', '亚铁乳酸'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5131,7 +5131,7 @@ const additiveData = [
   {
     id: 'kio3',
     name: '碘酸钾',
-    aliases: ['Potassium iodate'],
+    aliases: ['Potassium iodate', '碘盐强化剂'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5148,7 +5148,7 @@ const additiveData = [
   {
     id: 'na-selenite',
     name: '亚硒酸钠',
-    aliases: ['Sodium selenite'],
+    aliases: ['Sodium selenite', '亚硒酸二钠'],
     code: '',
     category: '其他',
     safetyLevel: '争议',
@@ -5284,7 +5284,7 @@ const additiveData = [
   {
     id: 'pectinase',
     name: '果胶酶',
-    aliases: ['Pectinase'],
+    aliases: ['Pectinase', '果胶水解酶'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5352,7 +5352,7 @@ const additiveData = [
   {
     id: 'vanillin',
     name: '香兰素',
-    aliases: ['Vanillin', '香草醛', '4-羟基-3-甲氧基苯甲醛'],
+    aliases: ['Vanillin', '香草醛', '4-羟基-3-甲氧基苯甲醛', '香兰精'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5369,7 +5369,7 @@ const additiveData = [
   {
     id: 'ethyl-van',
     name: '乙基香兰素',
-    aliases: ['Ethyl vanillin', '乙基香草醛'],
+    aliases: ['Ethyl vanillin', '乙基香草醛', '乙基香兰精'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5420,7 +5420,7 @@ const additiveData = [
   {
     id: 'e223',
     name: '焦亚硫酸钠',
-    aliases: ['Sodium metabisulfite', '偏重亚硫酸钠'],
+    aliases: ['Sodium metabisulfite', '偏重亚硫酸钠', '重亚硫酸钠'],
     code: 'E223',
     category: '其他',
     safetyLevel: '争议',
@@ -5437,7 +5437,7 @@ const additiveData = [
   {
     id: 'e221',
     name: '亚硫酸钠',
-    aliases: ['Sodium sulfite'],
+    aliases: ['Sodium sulfite', '硫养粉'],
     code: 'E221',
     category: '其他',
     safetyLevel: '争议',
@@ -5488,7 +5488,7 @@ const additiveData = [
   {
     id: 'sulfur',
     name: '硫磺',
-    aliases: ['Sulfur', '硫'],
+    aliases: ['Sulfur', '硫', '硫黄'],
     code: '',
     category: '其他',
     safetyLevel: '争议',
@@ -5505,7 +5505,7 @@ const additiveData = [
   {
     id: 'e252',
     name: '硝酸钾',
-    aliases: ['Potassium nitrate', '硝石', '钾硝'],
+    aliases: ['Potassium nitrate', '硝石', '钾硝', '火硝'],
     code: 'E252',
     category: '其他',
     safetyLevel: '慎用',
@@ -5556,7 +5556,7 @@ const additiveData = [
   {
     id: 'zeaxanthin',
     name: '玉米黄质',
-    aliases: ['Zeaxanthin'],
+    aliases: ['Zeaxanthin', '玉米黄素'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5573,7 +5573,7 @@ const additiveData = [
   {
     id: 'caffeine',
     name: '咖啡因',
-    aliases: ['Caffeine', '1,3,7-三甲基黄嘌呤'],
+    aliases: ['Caffeine', '1,3,7-三甲基黄嘌呤', '咖啡碱'],
     code: '',
     category: '其他',
     safetyLevel: '争议',
@@ -5590,7 +5590,7 @@ const additiveData = [
   {
     id: 'capsaicin-ext',
     name: '辣椒精',
-    aliases: ['Capsicum oleoresin', '辣椒油树脂'],
+    aliases: ['Capsicum oleoresin', '辣椒油树脂', '辣椒素'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5618,13 +5618,13 @@ const additiveData = [
     commonFoods: '饮料、发酵制品、豆制品',
     summary: '消泡剂，发酵和饮料加工中常用',
     detail: '乳化硅油由聚二甲基硅氧烷乳化制得，在食品加工中作为消泡剂使用。在发酵制品和豆制品加工中消除泡沫提高生产效率，在饮料中防止灌装时起泡溢出。硅油在体内不被吸收，以原形排出，JECFA设定ADI为1.5 mg/kg bw。',
-    warning: '',
+    warning: '合成硅油类消泡剂，ADI值较低，长期大量摄入的安全性需关注',
     source: 'GB2760-2024 / JECFA第18次评估报告'
   },
   {
     id: 'cuso4',
     name: '硫酸铜',
-    aliases: ['Copper sulfate', '蓝矾'],
+    aliases: ['Copper sulfate', '蓝矾', '胆矾'],
     code: '',
     category: '其他',
     safetyLevel: '争议',
@@ -5641,7 +5641,7 @@ const additiveData = [
   {
     id: 'ferric-am-cit',
     name: '柠檬酸铁铵',
-    aliases: ['Ferric ammonium citrate'],
+    aliases: ['Ferric ammonium citrate', '枸橼酸铁铵'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5658,7 +5658,7 @@ const additiveData = [
   {
     id: 'zinc-oxide',
     name: '氧化锌',
-    aliases: ['Zinc oxide'],
+    aliases: ['Zinc oxide', '锌白'],
     code: '',
     category: '其他',
     safetyLevel: '争议',
@@ -5675,7 +5675,7 @@ const additiveData = [
   {
     id: 'zinc-lac',
     name: '乳酸锌',
-    aliases: ['Zinc lactate'],
+    aliases: ['Zinc lactate', '锌乳酸'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5726,7 +5726,7 @@ const additiveData = [
   {
     id: 'bentonite',
     name: '膨润土',
-    aliases: ['Bentonite', '皂土'],
+    aliases: ['Bentonite', '皂土', '斑脱土'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5743,7 +5743,7 @@ const additiveData = [
   {
     id: 'ki',
     name: '碘化钾',
-    aliases: ['Potassium iodide'],
+    aliases: ['Potassium iodide', 'KI'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5760,7 +5760,7 @@ const additiveData = [
   {
     id: 'niacin',
     name: '烟酸',
-    aliases: ['Niacin', '尼克酸', '维生素B3'],
+    aliases: ['Niacin', '尼克酸', '维生素B3', 'VPP'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5845,7 +5845,7 @@ const additiveData = [
   {
     id: 'cellulase',
     name: '纤维素酶',
-    aliases: ['Cellulase'],
+    aliases: ['Cellulase', '纤维水解酶'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5930,7 +5930,7 @@ const additiveData = [
   {
     id: 'beta-cd',
     name: 'β-环状糊精',
-    aliases: ['Beta-cyclodextrin', 'β-CD', '环麦芽七糖'],
+    aliases: ['Beta-cyclodextrin', 'β-CD', '环麦芽七糖', '环糊精'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5947,7 +5947,7 @@ const additiveData = [
   {
     id: 'choline-cl',
     name: '氯化胆碱',
-    aliases: ['Choline chloride'],
+    aliases: ['Choline chloride', '胆碱盐'],
     code: '',
     category: '其他',
     safetyLevel: '安全',
@@ -5975,7 +5975,7 @@ const additiveData = [
     commonFoods: '啤酒、葡萄酒、醋',
     summary: '合成高分子澄清剂，啤酒和葡萄酒加工助剂',
     detail: '聚乙烯吡咯烷酮（PVP）为合成高分子聚合物，在啤酒和葡萄酒中作为澄清剂使用。其与多酚类物质形成复合物沉淀去除，防止啤酒冷浑浊和葡萄酒氧化变色。不溶性的交联PVP（PVPP）在加工后过滤去除，JECFA设定ADI为50 mg/kg bw。',
-    warning: '合成高分子物质，食品中残留量需严格控制',
+    warning: '合成高分子聚合物，不溶性PVPP加工后需过滤去除，残留量需严格控制',
     source: 'GB2760-2024 / JECFA第16次评估报告'
   }
 ]
