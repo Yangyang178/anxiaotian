@@ -21,6 +21,19 @@ Page({
   },
 
   onShow() {
+    const app = getApp()
+    const { pendingCategory, pendingSafetyLevel } = app.globalData
+    if (pendingCategory) {
+      this.setData({ activeTab: 'category', currentSafetyLevel: '' })
+      const list = getByCategory(pendingCategory)
+      this.setData({ currentCategory: pendingCategory, displayList: list })
+      app.globalData.pendingCategory = ''
+    } else if (pendingSafetyLevel) {
+      this.setData({ activeTab: 'safety', currentCategory: '' })
+      const list = getBySafetyLevel(pendingSafetyLevel)
+      this.setData({ currentSafetyLevel: pendingSafetyLevel, displayList: list })
+      app.globalData.pendingSafetyLevel = ''
+    }
   },
 
   switchTab(e) {

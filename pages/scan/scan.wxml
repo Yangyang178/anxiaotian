@@ -1,6 +1,6 @@
 <navigation-bar title="配料表解析" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
-  <view class="page-content">
+  <view class="page-content fade-in">
     <view wx:if="{{!hasResult}}" class="input-section">
       <view class="input-card">
         <view class="input-header">
@@ -52,7 +52,7 @@
       </view>
     </view>
 
-    <view wx:if="{{hasResult && result}}" class="result-section">
+    <view wx:if="{{hasResult && result && result.total > 0}}" class="result-section">
       <view class="result-summary">
         <view class="summary-title">解析结果</view>
         <view class="summary-stats">
@@ -109,6 +109,18 @@
         <view class="reset-btn" bindtap="onReset">
           <text>重新解析</text>
         </view>
+        <button class="share-btn" open-type="share">
+          <text>分享给好友</text>
+        </button>
+      </view>
+    </view>
+
+    <view wx:if="{{hasResult && result && result.total === 0}}" class="empty-parse">
+      <view class="empty-parse-icon"></view>
+      <text class="empty-parse-title">未在配料表中识别到已知添加剂</text>
+      <text class="empty-parse-hint">请确认输入的是食品配料表内容</text>
+      <view class="empty-parse-action" bindtap="onReset">
+        <text>重新输入</text>
       </view>
     </view>
 

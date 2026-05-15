@@ -154,3 +154,34 @@
 .tab-item.active .icon-mine-body {
   background-color: #52C41A;
 }
+
+@media (prefers-color-scheme: dark) {
+  .tab-bar {
+    background-color: #2C2C2C;
+    border-top-color: #3A3A3A;
+  }
+  .tab-text {
+    color: #777777;
+  }
+  .icon-home-roof {
+    border-bottom-color: #777777;
+  }
+  .icon-home-body {
+    background-color: #777777;
+  }
+  .icon-category-dot {
+    background-color: #777777;
+  }
+  .icon-scan-frame {
+    border-color: #777777;
+  }
+  .icon-scan-line {
+    background-color: #777777;
+  }
+  .icon-mine-head {
+    background-color: #777777;
+  }
+  .icon-mine-body {
+    background-color: #777777;
+  }
+}

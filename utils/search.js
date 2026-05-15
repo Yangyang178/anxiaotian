@@ -1,4 +1,5 @@
 const { additiveData } = require('./additiveData')
+const { searchIndex } = require('./searchIndex')
 
 const SAFETY_CLASS_MAP = {
   '\u5B89\u5168': 'safe',
@@ -19,7 +20,7 @@ function searchAdditives(keyword) {
   const codeMatch = []
   const partial = []
 
-  for (const item of additiveData) {
+  for (const item of searchIndex) {
     const nameLower = (item.name || '').toLowerCase()
     const aliases = item.aliases || []
     const code = (item.code || '').toLowerCase()
@@ -39,20 +40,20 @@ function searchAdditives(keyword) {
     }
   }
 
-  return [...exact, ...aliasMatch, ...codeMatch, ...partial].slice(0, 20).map(addSafetyClass)
+  return [...exact, ...aliasMatch, ...codeMatch, ...partial].slice(0, 20)
 }
 
 function getByCategory(category) {
-  return additiveData.filter(item => item.category === category).map(addSafetyClass)
+  return searchIndex.filter(item => item.category === category)
 }
 
 function getBySafetyLevel(level) {
-  return additiveData.filter(item => item.safetyLevel === level).map(addSafetyClass)
+  return searchIndex.filter(item => item.safetyLevel === level)
 }
 
 function getCategories() {
   const map = {}
-  for (const item of additiveData) {
+  for (const item of searchIndex) {
     const cat = item.category
     if (cat) {
       map[cat] = (map[cat] || 0) + 1
@@ -76,7 +77,7 @@ function cleanIngredientText(text) {
 
 function buildAliasLookup() {
   const lookup = {}
-  for (const item of additiveData) {
+  for (const item of searchIndex) {
     lookup[item.name] = item
     if (item.aliases && item.aliases.length > 0) {
       for (const alias of item.aliases) {
@@ -113,7 +114,7 @@ function parseIngredientList(text) {
       continue
     }
     const partLower = part.toLowerCase()
-    for (const item of additiveData) {
+    for (const item of searchIndex) {
       if (seen.has(item.id)) continue
       if (item.name === part) {
         matched.push(item)
@@ -135,15 +136,13 @@ function parseIngredientList(text) {
 
   for (const part of parts) {
     if (part.length < 2) continue
-    let foundAny = false
-    for (const item of additiveData) {
+    for (const item of searchIndex) {
       if (seen.has(item.id)) continue
       const nameLen = (item.name || '').length
       if (nameLen < 2) continue
       if (part.includes(item.name)) {
         matched.push(item)
         seen.add(item.id)
-        foundAny = true
         continue
       }
       if (item.aliases) {
@@ -151,7 +150,6 @@ function parseIngredientList(text) {
           if (alias.length >= 2 && part.includes(alias)) {
             matched.push(item)
             seen.add(item.id)
-            foundAny = true
             break
           }
         }
@@ -159,7 +157,7 @@ function parseIngredientList(text) {
     }
   }
 
-  for (const item of additiveData) {
+  for (const item of searchIndex) {
     if (seen.has(item.id)) continue
     const nameLen = (item.name || '').length
     if (nameLen < 3) continue
@@ -191,8 +189,45 @@ function parseIngredientList(text) {
     safe,
     warning,
     danger,
-    items: matched.map(addSafetyClass)
+    items: matched
   }
+}
+
+function searchSuggestions(keyword) {
+  if (!keyword || keyword.length < 1) return []
+  const kw = keyword.toLowerCase()
+  const results = []
+  const seen = new Set()
+
+  for (const item of searchIndex) {
+    if (seen.has(item.id)) continue
+    if (item.name.toLowerCase() === kw || (item.aliases && item.aliases.some(a => a.toLowerCase() === kw)) || (item.code && item.code.toLowerCase() === kw)) {
+      results.push({ id: item.id, name: item.name, code: item.code, safetyLevel: item.safetyLevel, safetyClass: item.safetyClass, matchType: 'exact' })
+      seen.add(item.id)
+    }
+  }
+
+  for (const item of searchIndex) {
+    if (seen.has(item.id)) continue
+    if (results.length >= 8) break
+    const nameLower = (item.name || '').toLowerCase()
+    if (nameLower.startsWith(kw) || (item.aliases && item.aliases.some(a => a.toLowerCase().startsWith(kw))) || (item.code && item.code.toLowerCase().startsWith(kw))) {
+      results.push({ id: item.id, name: item.name, code: item.code, safetyLevel: item.safetyLevel, safetyClass: item.safetyClass, matchType: 'prefix' })
+      seen.add(item.id)
+    }
+  }
+
+  for (const item of searchIndex) {
+    if (seen.has(item.id)) continue
+    if (results.length >= 8) break
+    const nameLower = (item.name || '').toLowerCase()
+    if (nameLower.includes(kw) || (item.aliases && item.aliases.some(a => a.toLowerCase().includes(kw) && a.length >= 2)) || (item.code && item.code.toLowerCase().includes(kw))) {
+      results.push({ id: item.id, name: item.name, code: item.code, safetyLevel: item.safetyLevel, safetyClass: item.safetyClass, matchType: 'partial' })
+      seen.add(item.id)
+    }
+  }
+
+  return results.slice(0, 8)
 }
 
 module.exports = {
@@ -201,5 +236,6 @@ module.exports = {
   getBySafetyLevel,
   getCategories,
   getById,
-  parseIngredientList
+  parseIngredientList,
+  searchSuggestions
 }

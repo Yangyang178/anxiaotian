@@ -7,6 +7,8 @@
     "pages/detail/detail",
     "pages/compare/compare"
   ],
+  "darkmode": true,
+  "themeLocation": "theme.json",
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",

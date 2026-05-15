@@ -112,143 +112,150 @@
         </view>
       </view>
 
-      <view class="compare-table">
-        <view class="table-row table-header-row">
-          <view class="table-label-cell">
-            <text class="table-header-text">对比项</text>
+      <scroll-view class="table-scroll" scroll-x enhanced show-scrollbar="{{true}}">
+        <view class="compare-table">
+          <view class="table-row table-header-row">
+            <view class="table-label-cell">
+              <text class="table-header-text">对比项</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-header-text table-header-{{item.safetyClass}}">{{item.name}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-header-text table-header-{{item.safetyClass}}">{{item.name}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">安全等级</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">安全等级</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="safety-badge safety-badge-{{item.safetyClass}}">{{item.safetyLevel}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="safety-badge safety-badge-{{item.safetyClass}}">{{item.safetyLevel}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">编码</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">编码</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.code}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.code}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">功能分类</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">功能分类</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.category}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.category}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">国标状态</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">国标状态</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.gbStatus}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.gbStatus}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">欧盟状态</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">欧盟状态</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.euStatus}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.euStatus}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">美国状态</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">美国状态</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.usStatus}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.usStatus}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">每日允许摄入量</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">每日允许摄入量</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.adi}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.adi}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">常见食品</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">常见食品</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text">{{item.commonFoods}}</text>
+            </view>
           </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text">{{item.commonFoods}}</text>
-          </view>
-        </view>
 
-        <view class="table-row">
-          <view class="table-label-cell">
-            <text class="table-label-text">特殊提醒</text>
-          </view>
-          <view
-            wx:for="{{selectedItems}}"
-            wx:key="id"
-            class="table-value-cell"
-          >
-            <text class="table-value-text {{item.warning ? 'warning-text' : 'no-warning'}}">{{item.warning || '无'}}</text>
+          <view class="table-row">
+            <view class="table-label-cell">
+              <text class="table-label-text">特殊提醒</text>
+            </view>
+            <view
+              wx:for="{{selectedItems}}"
+              wx:key="id"
+              class="table-value-cell"
+            >
+              <text class="table-value-text {{item.warning ? 'warning-text' : 'no-warning'}}">{{item.warning || '无'}}</text>
+            </view>
           </view>
         </view>
-      </view>
+      </scroll-view>
 
       <view class="compare-action">
         <view class="compare-btn compare-btn-reset" bindtap="onReset">
           <text>重新选择</text>
         </view>
+        <view class="compare-btn compare-btn-share" bindtap="onShareResult">
+          <text>分享结果</text>
+        </view>
       </view>
+
+      <canvas type="2d" id="shareCanvas" class="share-canvas"></canvas>
 
       <view class="disclaimer">
         <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>

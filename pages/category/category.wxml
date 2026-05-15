@@ -1,6 +1,6 @@
 <navigation-bar title="分类浏览" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
-  <view class="page-content">
+  <view class="page-content fade-in">
     <view class="tab-header">
       <view class="tab-btn {{activeTab === 'category' ? 'tab-active' : ''}}" data-tab="category" bindtap="switchTab">
         <text>按功能</text>
@@ -58,8 +58,9 @@
           <text class="item-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
         </view>
       </view>
-      <view wx:if="{{displayList.length === 0}}" class="empty-state">
-        <text class="empty-text">暂无数据</text>
+      <view wx:if="{{displayList.length === 0}}" class="empty-category">
+        <view class="empty-category-icon"></view>
+        <text class="empty-category-text">该分类下暂无添加剂数据</text>
       </view>
     </view>
   </view>

@@ -172,5 +172,14 @@ Page({
   onTapAdditive(e) {
     const { id } = e.currentTarget.dataset
     wx.navigateTo({ url: `/pages/detail/detail?id=${id}` })
+  },
+
+  onShareAppMessage() {
+    const { result } = this.data
+    const total = (result && result.total) || 0
+    return {
+      title: `食安查 | 配料表解析 - 发现${total}种添加剂`,
+      path: '/pages/scan/scan'
+    }
   }
 })

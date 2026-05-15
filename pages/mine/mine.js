@@ -1,4 +1,4 @@
-const { getFavorites, getScanHistory, clearScanHistory, removeFavorite, isFavorite } = require('../../utils/storage')
+const { getFavorites, getScanHistory, clearScanHistory, removeFavorite, isFavorite, getSafetyIndex } = require('../../utils/storage')
 const { getById } = require('../../utils/search')
 
 const PREVIEW_COUNT = 3
@@ -13,12 +13,20 @@ Page({
     favoriteCount: 0,
     historyCount: 0,
     showAllFavorites: false,
-    showAllHistory: false
+    showAllHistory: false,
+    historyDetail: null,
+    showHistoryDetail: false,
+    safetyIndex: { score: -1, level: '', desc: '' },
+    safetyIndexColor: '#52C41A'
   },
 
   onShow() {
     this.loadFavorites()
     this.loadHistory()
+    this.setData({ safetyIndex: getSafetyIndex() })
+    const levelColorMap = { '优秀': '#52C41A', '良好': '#73D13D', '一般': '#FAAD14', '需注意': '#FF4D4F' }
+    const si = this.data.safetyIndex
+    this.setData({ safetyIndexColor: si.score >= 0 ? (levelColorMap[si.level] || '#52C41A') : '#52C41A' })
   },
 
   loadFavorites() {
@@ -85,11 +93,20 @@ Page({
     })
   },
 
-  onViewHistoryDetail(e) {
+  onViewHistory(e) {
     const { index } = e.currentTarget.dataset
     const item = this.data.history[index]
     if (item && item.result) {
-      this.setData({ activeTab: 'history' })
+      this.setData({ historyDetail: item, showHistoryDetail: true })
     }
+  },
+
+  onCloseHistoryDetail() {
+    this.setData({ showHistoryDetail: false, historyDetail: null })
+  },
+
+  onHistoryAdditiveTap(e) {
+    const { id } = e.currentTarget.dataset
+    wx.navigateTo({ url: `/pages/detail/detail?id=${id}` })
   }
 })

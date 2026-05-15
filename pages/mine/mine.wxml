@@ -22,6 +22,22 @@
       </view>
     </view>
 
+    <view class="safety-index-card">
+      <text class="safety-index-title">食品安全指数</text>
+      <block wx:if="{{safetyIndex.score >= 0}}">
+        <view class="safety-index-circle" style="background: conic-gradient({{safetyIndexColor}} 0% {{safetyIndex.score}}%, #F0F0F0 {{safetyIndex.score}}% 100%)">
+          <view class="safety-index-circle-inner">
+            <text class="safety-index-score">{{safetyIndex.score}}</text>
+          </view>
+        </view>
+        <text class="safety-index-level" style="color: {{safetyIndexColor}}">{{safetyIndex.level}}</text>
+        <text class="safety-index-desc">{{safetyIndex.desc}}</text>
+      </block>
+      <block wx:else>
+        <text class="safety-index-empty">开始扫描配料表获取您的安全指数</text>
+      </block>
+    </view>
+
     <view class="tab-header">
       <view class="tab-btn {{activeTab === 'favorites' ? 'tab-active' : ''}}" data-tab="favorites" bindtap="switchTab">
         <text>我的收藏</text>
@@ -68,7 +84,7 @@
         <text class="empty-hint">去扫一扫页面解析配料表</text>
       </view>
       <block wx:else>
-        <view wx:for="{{displayHistory}}" wx:key="time" class="history-item">
+        <view wx:for="{{displayHistory}}" wx:key="time" class="history-item" data-index="{{index}}" bindtap="onViewHistory">
           <view class="history-header">
             <text class="history-time">{{item.timeText}}</text>
             <view class="history-stats">
@@ -102,4 +118,67 @@
     </view>
   </view>
 </scroll-view>
+
+<view wx:if="{{showHistoryDetail}}" class="history-detail-overlay" bindtap="onCloseHistoryDetail">
+  <view class="history-detail-panel" catchtap="">
+    <view class="history-detail-header">
+      <text class="history-detail-title">扫描详情</text>
+      <view class="history-detail-close" bindtap="onCloseHistoryDetail">
+        <text>✕</text>
+      </view>
+    </view>
+    <scroll-view class="history-detail-scroll" scroll-y>
+      <view wx:if="{{historyDetail.result}}" class="history-detail-content">
+        <view class="history-detail-stats">
+          <view class="hd-stat-item">
+            <text class="hd-stat-number">{{historyDetail.result.total}}</text>
+            <text class="hd-stat-label">添加剂</text>
+          </view>
+          <view class="hd-stat-item hd-stat-safe">
+            <text class="hd-stat-number">{{historyDetail.result.safe}}</text>
+            <text class="hd-stat-label">🟢 安全</text>
+          </view>
+          <view class="hd-stat-item hd-stat-warning">
+            <text class="hd-stat-number">{{historyDetail.result.warning}}</text>
+            <text class="hd-stat-label">🟡 争议</text>
+          </view>
+          <view class="hd-stat-item hd-stat-danger">
+            <text class="hd-stat-number">{{historyDetail.result.danger}}</text>
+            <text class="hd-stat-label">🔴 慎用</text>
+          </view>
+        </view>
+        <view class="hd-verdict" wx:if="{{historyDetail.result.danger > 0}}">
+          <text class="hd-verdict-danger">⚠️ 含有{{historyDetail.result.danger}}种慎用添加剂，建议谨慎选择</text>
+        </view>
+        <view class="hd-verdict" wx:elif="{{historyDetail.result.warning > 0}}">
+          <text class="hd-verdict-warning">⚠️ 含有{{historyDetail.result.warning}}种争议添加剂，建议适量食用</text>
+        </view>
+        <view class="hd-verdict" wx:else>
+          <text class="hd-verdict-safe">✅ 所含添加剂均在安全范围内</text>
+        </view>
+        <view wx:if="{{historyDetail.result.items && historyDetail.result.items.length > 0}}" class="history-detail-list">
+          <view
+            wx:for="{{historyDetail.result.items}}"
+            wx:key="id"
+            class="history-detail-item safety-{{item.safetyClass}}"
+            data-id="{{item.id}}"
+            bindtap="onHistoryAdditiveTap"
+          >
+            <view class="hd-item-left">
+              <view class="hd-safety-badge hd-safety-badge-{{item.safetyClass}}">
+                <text>{{item.safetyLevel}}</text>
+              </view>
+              <view class="hd-item-info">
+                <text class="hd-item-name">{{item.name}}</text>
+                <text class="hd-item-summary">{{item.summary}}</text>
+              </view>
+            </view>
+            <view class="hd-item-arrow"></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
 <my-tab-bar current="{{3}}"></my-tab-bar>

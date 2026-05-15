@@ -1,4 +1,4 @@
-const { getById } = require('../../utils/search')
+const { getById, getByCategory } = require('../../utils/search')
 const { isFavorite, addFavorite, removeFavorite } = require('../../utils/storage')
 
 Page({
@@ -10,7 +10,8 @@ Page({
     safetyBg: '',
     gbIcon: '',
     euIcon: '',
-    usIcon: ''
+    usIcon: '',
+    relatedItems: []
   },
 
   onLoad(options) {
@@ -28,6 +29,9 @@ Page({
     }
     const statusIcon = { '允许': '✅', '限量': '⚠️', '禁止': '❌' }
     const safety = safetyMap[additive.safetyLevel] || safetyMap['安全']
+    const relatedItems = getByCategory(additive.category)
+      .filter(item => item.id !== additive.id)
+      .slice(0, 6)
     this.setData({
       additive,
       isFav: isFavorite(id),
@@ -36,8 +40,14 @@ Page({
       safetyBg: safety.bg,
       gbIcon: statusIcon[additive.gbStatus] || '—',
       euIcon: statusIcon[additive.euStatus] || '—',
-      usIcon: statusIcon[additive.usStatus] || '—'
+      usIcon: statusIcon[additive.usStatus] || '—',
+      relatedItems
     })
+  },
+
+  onRelatedTap(e) {
+    const { id } = e.currentTarget.dataset
+    wx.redirectTo({ url: `/pages/detail/detail?id=${id}` })
   },
 
   onToggleFav() {
@@ -54,7 +64,7 @@ Page({
   onShareAppMessage() {
     const { additive } = this.data
     return {
-      title: `${additive.name}(${additive.code}) - ${additive.safetyLevel}`,
+      title: `食安查 | ${additive.name} - ${additive.safetyLevel}`,
       path: `/pages/detail/detail?id=${additive.id}`
     }
   }

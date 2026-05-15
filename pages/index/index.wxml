@@ -1,6 +1,6 @@
 <navigation-bar title="食安查" back="{{false}}" color="black" background="#FFF"></navigation-bar>
 <scroll-view class="scrollarea" scroll-y type="list">
-  <view class="page-content">
+  <view class="page-content fade-in">
     <view class="header-section">
       <view class="header-brand">
         <view class="brand-mark"></view>
@@ -23,10 +23,55 @@
           placeholder-class="search-placeholder"
           value="{{keyword}}"
           bindinput="onSearchInput"
+          bindfocus="onSearchFocus"
+          bindblur="onSearchBlur"
           confirm-type="search"
         />
         <view class="search-clear" wx:if="{{keyword}}" bindtap="onClearSearch">
           <view class="clear-icon"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="search-dropdown" wx:if="{{showHistory || showSuggestions}}">
+      <view wx:if="{{showHistory && searchHistory.length > 0}}" class="dropdown-inner">
+        <view class="dropdown-header">
+          <text class="dropdown-title">搜索历史</text>
+        </view>
+        <view
+          wx:for="{{searchHistory}}"
+          wx:key="*this"
+          class="history-item"
+          data-keyword="{{item}}"
+          bindtap="onTapHistory"
+        >
+          <view class="history-icon"></view>
+          <text class="history-text">{{item}}</text>
+        </view>
+        <view class="history-clear" bindtap="onClearHistory">
+          <text class="history-clear-text">清空搜索历史</text>
+        </view>
+      </view>
+
+      <view wx:if="{{showSuggestions && suggestions.length > 0}}" class="dropdown-inner">
+        <view class="dropdown-header">
+          <text class="dropdown-title">搜索建议</text>
+        </view>
+        <view
+          wx:for="{{suggestions}}"
+          wx:key="id"
+          class="suggestion-item"
+          data-id="{{item.id}}"
+          bindtap="onTapSuggestion"
+        >
+          <view class="suggestion-left">
+            <view class="safety-dot safety-dot-{{item.safetyClass}}"></view>
+            <view class="suggestion-info">
+              <text class="suggestion-name">{{item.name}}</text>
+              <text class="suggestion-code">{{item.code}}</text>
+            </view>
+          </view>
+          <text class="suggestion-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
         </view>
       </view>
     </view>
@@ -54,8 +99,10 @@
           <text class="item-safety safety-text-{{item.safetyClass}}">{{item.safetyLevel}}</text>
         </view>
       </view>
-      <view wx:if="{{searchResults.length === 0}}" class="empty-result">
-        <text class="empty-text">未找到相关添加剂</text>
+      <view wx:if="{{searchResults.length === 0}}" class="empty-search">
+        <view class="empty-search-icon"></view>
+        <text class="empty-search-title">未找到相关添加剂</text>
+        <text class="empty-search-hint">试试搜索编号，如 E202</text>
       </view>
     </view>
 
@@ -115,6 +162,16 @@
             </view>
           </view>
         </view>
+      </view>
+
+      <view class="daily-tip" wx:if="{{dailyTip}}" bindtap="onTapDailyTip">
+        <view class="daily-tip-header">
+          <view class="daily-tip-icon"></view>
+          <text class="daily-tip-label">每日一知</text>
+        </view>
+        <text class="daily-tip-title">{{dailyTip.title}}</text>
+        <text class="daily-tip-fact">{{dailyTip.fact}}</text>
+        <view class="daily-tip-badge daily-tip-badge-{{dailyTip.safetyLevel === '安全' ? 'safe' : dailyTip.safetyLevel === '争议' ? 'warning' : 'danger'}}">{{dailyTip.safetyLevel}}</view>
       </view>
 
       <view class="compare-entry" bindtap="onGoCompare">

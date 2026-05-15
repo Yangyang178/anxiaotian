@@ -79,6 +79,20 @@
       </button>
     </view>
 
+    <view class="related-section" wx:if="{{relatedItems.length}}">
+      <view class="related-title">同类添加剂</view>
+      <view class="related-list">
+        <view class="related-item" wx:for="{{relatedItems}}" wx:key="id" bindtap="onRelatedTap" data-id="{{item.id}}">
+          <view class="related-dot related-dot-{{item.safetyClass}}"></view>
+          <view class="related-info">
+            <text class="related-name">{{item.name}}</text>
+            <text class="related-code">{{item.code}}</text>
+          </view>
+          <text class="related-arrow">›</text>
+        </view>
+      </view>
+    </view>
+
     <view class="disclaimer">
       <text class="disclaimer-text">⚠️ 查询结果仅供信息参考，不构成消费建议</text>
     </view>

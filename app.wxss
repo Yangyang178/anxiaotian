@@ -31,3 +31,26 @@ page {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    --primary-light: #1A3A0A;
+    --warning-light: #3A2E0A;
+    --danger-light: #3A1A1A;
+    --bg: #1A1A1A;
+    --card: #2C2C2C;
+    --text-primary: #E8E8E8;
+    --text-secondary: #999999;
+    --text-hint: #777777;
+    --border: #3A3A3A;
+  }
+}
